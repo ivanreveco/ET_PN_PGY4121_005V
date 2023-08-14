@@ -1,0 +1,7 @@
+{
+  "name": "Recordate",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
