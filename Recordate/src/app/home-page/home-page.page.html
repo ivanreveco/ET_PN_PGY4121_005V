@@ -1,0 +1,27 @@
+
+<ion-content   [fullscreen]="true">
+  <ion-header collapse="condense">
+    
+  </ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="auto"class="tipos">
+        <ion-list>
+          <ion-item>
+            <ion-select aria-label="Categorias" interface="popover" placeholder="Todas las listas" class="list">
+              <ion-select-option class="opt" value="apples">Compras</ion-select-option>
+              <ion-select-option value="oranges">Estudios</ion-select-option>
+              <ion-select-option value="bananas">Trabajo</ion-select-option>
+              <ion-select-option value="bananas">Personal</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+        <ion-searchbar show-cancel-button="focus" placeholder="Buscar"></ion-searchbar>
+      </ion-item>
+      </ion-col> 
+    </ion-row>
+  </ion-grid>
+</ion-content>
