@@ -1,12 +1,21 @@
 
 ion-select{
     --placeholder-color:white;
+    margin-top: 16px;
 }
 ion-searchbar{
     --placeholder-color:white;
     --color:white;
 }
+.card{
+    justify-content: center;
+    align-items: center;
+}
 ion-card{
-    --width:50px;
-    width: 75%;
+    height: 250px;
+    background-color:white;
+    
+}
+.edit{
+    width: 25px;
 }
