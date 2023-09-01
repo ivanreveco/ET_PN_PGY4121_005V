@@ -3,27 +3,19 @@
   <ion-header collapse="condense">
     
   </ion-header>
-  <ion-grid>
-    <ion-row>
-      <ion-col size="auto"class="tipos">
-        <ion-list>
-          <ion-item>
-            <ion-select style="color:white;"aria-label="Categorias" interface="popover" placeholder="Todas las listas" class="list">
-              <ion-select-option class="opt" value="apples">Compras</ion-select-option>
-              <ion-select-option value="oranges">Estudios</ion-select-option>
-              <ion-select-option value="bananas">Trabajo</ion-select-option>
-              <ion-select-option value="bananas">Personal</ion-select-option>
-            </ion-select>
-          </ion-item>
-        </ion-list>
-      </ion-col>
-      <ion-col>
-        <ion-item>
+ 
+    <div class="header">
         <ion-searchbar show-cancel-button="focus" placeholder="Buscar"></ion-searchbar>
-      </ion-item>
-      </ion-col> 
-    </ion-row>
-  </ion-grid>
+        <ion-list size="auto"class="tipos">
+          <ion-select style="color:white;"aria-label="Categorias" interface="popover" placeholder="Todas las listas" class="list">
+            <ion-select-option class="opt" value="apples">Compras</ion-select-option>
+            <ion-select-option value="oranges">Estudios</ion-select-option>
+            <ion-select-option value="bananas">Trabajo</ion-select-option>
+            <ion-select-option value="bananas">Personal</ion-select-option>
+          </ion-select>
+      </ion-list>
+     
+    </div>
   <ion-grid>
     <div class="card">
     <ion-row>
@@ -32,7 +24,7 @@
           <ion-card-header>
             <ion-card-title>Card Title</ion-card-title>
             <ion-row>
-  
+            <ion-col><img class="edit" src="assets/img/edit.png" alt="imagen de editar"></ion-col>  
             <ion-col> <ion-checkbox></ion-checkbox> </ion-col>
           </ion-row>
           </ion-card-header>
@@ -47,7 +39,7 @@
         <ion-card-header>
           <ion-card-title>Card Title</ion-card-title>
           <ion-row>
-
+          <ion-col><img class="edit" src="assets/img/edit.png" alt="imagen de editar"></ion-col>  
           <ion-col> <ion-checkbox></ion-checkbox> </ion-col>
         </ion-row>
         </ion-card-header>
@@ -83,7 +75,7 @@
         <ion-card-header>
           <ion-card-title>Card Title</ion-card-title>
           <ion-row>
-
+          <ion-col><img class="edit" src="assets/img/edit.png" alt="imagen de editar"></ion-col>  
           <ion-col> <ion-checkbox></ion-checkbox> </ion-col>
         </ion-row>
         </ion-card-header>
