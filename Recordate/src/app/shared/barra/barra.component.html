@@ -1,3 +1,5 @@
+
+
 <ion-menu contentId="main-content">
   <ion-header>
       <ion-title>Menú</ion-title>
@@ -11,17 +13,16 @@
       <ion-item><img class="recordatorio"src="assets/img/recordatorio.png" alt=""><ion-button [routerLink]="['/note']">Recordatorio</ion-button></ion-item>
       <ion-item>  </ion-item>
       </ion-list>
-      <ion-button class="cerrar">cerrar session</ion-button>
+      <ion-button [routerLink]="['/home']" class="cerrar">cerrar session</ion-button>
   </ion-content>
 </ion-menu>
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button ></ion-menu-button>
+      <ion-buttons class="btn-menu" slot="start">
+        <ion-menu-button class="btn-menu"></ion-menu-button>
       </ion-buttons>
-
+      <ion-searchbar></ion-searchbar>
     </ion-toolbar>
   </ion-header>
   
-</div>
