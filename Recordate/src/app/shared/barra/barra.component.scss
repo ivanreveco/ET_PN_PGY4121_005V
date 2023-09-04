@@ -1,0 +1,21 @@
+body{
+    color:white;
+    position: absolute;
+}
+ion-title{
+    color:black;
+}
+.user{
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+.recordatorio{
+    width: 25px;
+}

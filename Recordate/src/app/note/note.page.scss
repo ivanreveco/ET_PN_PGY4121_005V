@@ -3,5 +3,24 @@
     right: 10px; /* Ajusta la posición horizontal según sea necesario */
     z-index: 10; /* Ajusta el índice z si es necesario */
     position: absolute;
+    width: 85px;
 
 }
+.title-pag{
+    color:white;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+.CancelarBoton{
+    top: 10px; /* Ajusta la posición vertical según sea necesario */
+    left: 10px; /* Ajusta la posición horizontal según sea necesario */
+    z-index: 10; /* Ajusta el índice z si es necesario */
+    position: absolute;
+    width: 85px;
+}
+.container-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
