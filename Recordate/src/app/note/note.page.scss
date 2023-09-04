@@ -8,8 +8,9 @@
 }
 .title-pag{
     color:white;
-    margin-left: 25%;
-    margin-right: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .CancelarBoton{
     top: 10px; /* Ajusta la posición vertical según sea necesario */
@@ -19,6 +20,11 @@
     width: 85px;
 }
 .container-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.containerFecha{
     display: flex;
     justify-content: center;
     align-items: center;

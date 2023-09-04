@@ -7,8 +7,8 @@
       <img class="user"src="assets/img/user.png" alt="">
     </div>
       <ion-list>
-      <ion-item ><ion-icon name="home-outline" ></ion-icon> Inicio</ion-item>
-      <ion-item><img class="recordatorio"src="assets/img/recordatorio.png" alt="">Recordatorio</ion-item>
+      <ion-item ><ion-icon name="home-outline" ></ion-icon><ion-button [routerLink]="['/home-page']">Inicio</ion-button> </ion-item>
+      <ion-item><img class="recordatorio"src="assets/img/recordatorio.png" alt=""><ion-button [routerLink]="['/note']">Recordatorio</ion-button></ion-item>
       <ion-item>  </ion-item>
       </ion-list>
       <ion-button class="cerrar">cerrar session</ion-button>

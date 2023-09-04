@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BarraComponent } from 'src/app/shared/barra/barra.component';
 import { IonicModule } from '@ionic/angular';
+import { RouterLink } from '@angular/router';
 
 
 @NgModule({
@@ -13,7 +14,9 @@ import { IonicModule } from '@ionic/angular';
   ],
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
+    RouterLink
+    
   ]
 })
 export class SharedModule { }
