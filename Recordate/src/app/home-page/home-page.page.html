@@ -1,109 +1,108 @@
 
 
-
-<app-barra></app-barra>
-
-
-<div class="header">
-     
-      <!--barra de busqueda-->
-      
-        <!--barra de secciones-->
-        <ion-grid>
-          <ion-row>
+<ion-content [fullscreen]="true">
+  <app-barra></app-barra>
+<div contaonerbody>
+  <div class="header">
+          <!--barra de secciones-->
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+              <ion-list size="auto"class="tipos">
+                  <ion-select style="color:white;"aria-label="Categorias" interface="popover" placeholder="Todas las listas" class="list">
+                    <ion-select-option class="opt" value="apples">Compras</ion-select-option>
+                    <ion-select-option value="oranges">Estudios</ion-select-option>
+                    <ion-select-option value="bananas">Trabajo</ion-select-option>
+                    <ion-select-option value="bananas">Personal</ion-select-option>
+                  </ion-select>
+              </ion-list>
+            </ion-col>
             <ion-col>
-            <ion-list size="auto"class="tipos">
-                <ion-select style="color:white;"aria-label="Categorias" interface="popover" placeholder="Todas las listas" class="list">
-                  <ion-select-option class="opt" value="apples">Compras</ion-select-option>
-                  <ion-select-option value="oranges">Estudios</ion-select-option>
-                  <ion-select-option value="bananas">Trabajo</ion-select-option>
-                  <ion-select-option value="bananas">Personal</ion-select-option>
-                </ion-select>
-            </ion-list>
+              <!--añadir notas -->
+              <ion-fab class="add-note">
+                <ion-fab-button >
+                  <ion-icon [routerLink]="['/note']" name="add"></ion-icon>
+                </ion-fab-button>
+              </ion-fab>
+            </ion-col>
+          </ion-row>
+      </ion-grid>
+  </div>
+    <div class="containercard">
+      <ion-grid>
+        <div class="card">
+        <ion-row>
+          <ion-col>
+            <ion-card >
+              <ion-card-header>
+                <ion-card-title>Card Title</ion-card-title>
+                <ion-row>
+                <ion-col><img class="edit" src="assets/img/edit.png" alt="imagen de editar"></ion-col>  
+                <ion-col> <ion-checkbox></ion-checkbox> </ion-col>
+              </ion-row>
+              </ion-card-header>
+            
+              <ion-card-content>
+                Here's a small text description for the card content. Nothing more, nothing less.
+              </ion-card-content>
+              </ion-card>
           </ion-col>
           <ion-col>
-            <!--añadir notas -->
-            <ion-fab class="add-note">
-              <ion-fab-button >
-                <ion-icon [routerLink]="['/note']" name="add"></ion-icon>
-              </ion-fab-button>
-            </ion-fab>
+            <ion-card >
+            <ion-card-header>
+              <ion-card-title>Card Title</ion-card-title>
+              <ion-row>
+              <ion-col><img class="edit" src="assets/img/edit.png" alt="imagen de editar"></ion-col>  
+              <ion-col> <ion-checkbox></ion-checkbox> </ion-col>
+            </ion-row>
+            </ion-card-header>
+          
+            <ion-card-content>
+              Here's a small text description for the card content. Nothing more, nothing less.
+            </ion-card-content>
+            </ion-card>
           </ion-col>
         </ion-row>
+      </div>  
     </ion-grid>
-    </div>
-  <ion-grid>
-    <div class="card">
-    <ion-row>
-      <ion-col>
-        <ion-card >
-          <ion-card-header>
-            <ion-card-title>Card Title</ion-card-title>
-            <ion-row>
-            <ion-col><img class="edit" src="assets/img/edit.png" alt="imagen de editar"></ion-col>  
-            <ion-col> <ion-checkbox></ion-checkbox> </ion-col>
-          </ion-row>
-          </ion-card-header>
-        
-          <ion-card-content>
-            Here's a small text description for the card content. Nothing more, nothing less.
-          </ion-card-content>
-          </ion-card>
-      </ion-col>
-      <ion-col>
-        <ion-card >
-        <ion-card-header>
-          <ion-card-title>Card Title</ion-card-title>
-          <ion-row>
-          <ion-col><img class="edit" src="assets/img/edit.png" alt="imagen de editar"></ion-col>  
-          <ion-col> <ion-checkbox></ion-checkbox> </ion-col>
+      <ion-grid>
+        <div class="card">
+        <ion-row>
+          <ion-col>
+            <ion-card >
+              <ion-card-header>
+                <ion-card-title>Card Title</ion-card-title>
+                <ion-row>
+                <ion-col><img class="edit" src="assets/img/edit.png" alt="imagen de editar"></ion-col>  
+                <ion-col> <ion-checkbox></ion-checkbox> </ion-col>
+              </ion-row>
+              </ion-card-header>
+            
+              <ion-card-content>
+                Here's a small text description for the card content. Nothing more, nothing less.
+              </ion-card-content>
+              </ion-card>
+          </ion-col>
+          <ion-col>
+            <ion-card >
+            <ion-card-header>
+              <ion-card-title>Card Title</ion-card-title>
+              <ion-row>
+              <ion-col><img class="edit" src="assets/img/edit.png" alt="imagen de editar"></ion-col>  
+              <ion-col> <ion-checkbox></ion-checkbox> </ion-col>
+            </ion-row>
+            </ion-card-header>
+          
+            <ion-card-content>
+              Here's a small text description for the card content. Nothing more, nothing less.
+            </ion-card-content>
+            </ion-card>
+          </ion-col>
         </ion-row>
-        </ion-card-header>
-      
-        <ion-card-content>
-          Here's a small text description for the card content. Nothing more, nothing less.
-        </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </div>  
-</ion-grid>
-  <ion-grid>
-    <div class="card">
-    <ion-row>
-      <ion-col>
-        <ion-card >
-          <ion-card-header>
-            <ion-card-title>Card Title</ion-card-title>
-            <ion-row>
-            <ion-col><img class="edit" src="assets/img/edit.png" alt="imagen de editar"></ion-col>  
-            <ion-col> <ion-checkbox></ion-checkbox> </ion-col>
-          </ion-row>
-          </ion-card-header>
-        
-          <ion-card-content>
-            Here's a small text description for the card content. Nothing more, nothing less.
-          </ion-card-content>
-          </ion-card>
-      </ion-col>
-      <ion-col>
-        <ion-card >
-        <ion-card-header>
-          <ion-card-title>Card Title</ion-card-title>
-          <ion-row>
-          <ion-col><img class="edit" src="assets/img/edit.png" alt="imagen de editar"></ion-col>  
-          <ion-col> <ion-checkbox></ion-checkbox> </ion-col>
-        </ion-row>
-        </ion-card-header>
-      
-        <ion-card-content>
-          Here's a small text description for the card content. Nothing more, nothing less.
-        </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </div>  
-  </ion-grid>
-  
+    </div>  
+    </ion-grid>
+  </div>
+</div>   
 
 
+</ion-content>

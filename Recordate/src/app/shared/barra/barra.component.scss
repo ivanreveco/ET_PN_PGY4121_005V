@@ -12,6 +12,7 @@ ion-title{
     align-items: center;
 }
 .image-container {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,7 +28,39 @@ ion-title{
     color: red;
 }
 ion-searchbar{
-    width: auto;
+    width: 100%;
     --placeholder-color:white;
     color:white;
+    display: flex;
+    --cancel-button-color: red;
+   
+
 }
+.block {
+    width: 100%;
+    height: 300px;
+    
+    align-items: center;
+    justify-content: center;
+  }
+  
+  ion-modal {
+    --height: auto;
+  }
+.img{
+    width: 50px;
+    background: transparent;
+}
+.btn{width: 50px;}
+ion-button{
+    background-color: transparent;
+}
+.containeritem{display: flex;
+    justify-content: center;
+    align-items: center;}
+.out{
+    width: 25px;
+}
+.containernombre{display: flex;
+    justify-content: center;
+    align-items: center;}

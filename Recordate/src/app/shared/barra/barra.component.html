@@ -1,27 +1,25 @@
-
-
-<ion-menu contentId="main-content">
-  <ion-header>
-      <ion-title>Menú</ion-title>
-  </ion-header>
-  <ion-content class="ion-padding">
-    <div class="image-container">
-      <img class="user"src="assets/img/user.png" alt="">
-    </div>
-      <ion-list>
-      <ion-item><img class="recordatorio"src="assets/img/recordatorio.png" alt=""><ion-button [routerLink]="['/home-page']">Recordatorio</ion-button></ion-item>
-      <ion-item>  </ion-item>
-      </ion-list>
-      <ion-button [routerLink]="['/home']" class="cerrar">cerrar session</ion-button>
-  </ion-content>
-</ion-menu>
-<div class="ion-page" id="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-buttons class="btn-menu" slot="start">
-        <ion-menu-button class="btn-menu"></ion-menu-button>
-      </ion-buttons>
-      <ion-searchbar></ion-searchbar>
-    </ion-toolbar>
-  </ion-header>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button id="open-modal" class="btn" expand="block"><img class="img"src="assets/img/menu.png" alt=""></ion-button>
+      <ion-searchbar showCancelButton="focus" class="custom" flex="1" minWidth="0"></ion-searchbar>
+    </ion-buttons>
+    <ion-content class="ion-padding">
   
+
+      <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+        <ng-template>
+          <div class="block"><div class="image-container">
+            <img class="user"src="assets/img/user.png" alt="">
+          </div>
+          <div class="containernombre">nombre del sowea</div>
+          <div containeritem>
+            <ion-item><img class="recordatorio"src="assets/img/recordatorio.png" alt=""><ion-button [routerLink]="['/home-page']">Recordatorio</ion-button></ion-item>
+            <ion-item> <img class="out" src="assets/img/out.png" alt=""><ion-button [routerLink]="['/home']" class="cerrar">cerrar session</ion-button></ion-item>
+          </div>
+          </div>
+        </ng-template>
+      </ion-modal>
+    </ion-content>
+  </ion-toolbar>
+</ion-header>
