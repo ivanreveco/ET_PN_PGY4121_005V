@@ -22,26 +22,67 @@
 
 <!--LABEL DE LOS INPUTS DE REGISTROS-->
   <div class="label_registro">
-    <ion-input label="Nombres" label-placement="floating" fill="outline" placeholder=""></ion-input>
+    <ion-input
+      [(ngModel)]="nombre"
+      label="Nombres"
+      label-placement="floating"
+      fill="outline"
+      placeholder=""
+      required
+      >
+    </ion-input>
     <br>
-    <ion-input label="Apellidos" label-placement="floating" fill="outline" placeholder=""></ion-input>
+    <ion-input
+      [(ngModel)]="apellidos"
+      label="Apellidos"
+      label-placement="floating"
+      fill="outline"
+      placeholder=""
+      required
+      >
+    </ion-input>
     <br>
-    <ion-input label="Email" label-placement="floating" fill="outline" placeholder=""></ion-input>
+    <ion-input
+      [(ngModel)]="email"
+      label="Email"
+      label-placement="floating"
+      fill="outline"
+      placeholder=""
+      required
+      >
+    </ion-input>
     <br>
-    <ion-input label="Contraseña" label-placement="floating" fill="outline" type="password" placeholder="" type="password"></ion-input>
+    <ion-input
+      [(ngModel)]="password"
+      label="Contraseña"
+      label-placement="floating"
+      fill="outline"
+      type="password"
+      placeholder=""
+      required
+      >
+    </ion-input>
     <br>
-    <ion-input label="Confirmar contraseña" label-placement="floating" fill="outline" type="password" placeholder="" type="password"></ion-input>
+    <ion-input
+      [(ngModel)]="confirmarPassword"
+      label="Confirmar contraseña"
+      label-placement="floating"
+      fill="outline"
+      type="password"
+      placeholder=""
+      required
+      >
+    </ion-input>
     <br>
 
     <!--CHECBOX DE TYC-->
     <ion-checkbox class="chechbox_registro"></ion-checkbox><a href="#">Acepto los términos y condiciones</a>   
+
   </div>
 
 <!--BOTON DE REGISTRARSE-->
-  <ion-button class="boton_registro">Registrarse</ion-button>
+<ion-button  class="boton_registro" (click)="registrar()" [disabled]="!validarFormulario()" [routerLink]="['/home-page']">Registrarse</ion-button>
+
   
 
 </ion-content>
-
-
-

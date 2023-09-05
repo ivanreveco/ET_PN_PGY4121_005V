@@ -13,7 +13,8 @@ import { HomePageRoutingModule } from './home-routing.module';
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [HomePage]
 })
