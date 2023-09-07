@@ -51,7 +51,12 @@
   <ion-button class="boton_incio"(click)="login()" [disabled]="!validarIngreso()" [routerLink]="['/home-page']">Inciar sesion</ion-button>
   <p class="letras_google">o usar tu cuenta google</p>
 <!--BOTON GOOGLE CON LOGO-->
-  <ion-button class="boton_google">Inciar sesion con<img src="assets/img/icono_google.png" alt="icono_google" class="google-img"></ion-button>
+  <ion-button id="present-alert" class="boton_google">Inciar sesion con<img src="assets/img/icono_google.png" alt="icono_google" class="google-img"></ion-button>
+  <ion-alert
+  trigger="present-alert"
+  header="Te haz registrado exitosamente"
+  [buttons]="alertButtons"
+></ion-alert>
 <!--LINEA VERTICAL-->
   <div class="vertical-line"></div>
 

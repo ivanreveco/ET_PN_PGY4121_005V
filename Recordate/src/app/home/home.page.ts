@@ -9,6 +9,7 @@ export class HomePage implements OnInit{
   correo_ingreso ='';
   contrasena_ingreso = '';
   name = '';
+  public alertButtons = 'OK';
 
   constructor() {}
 

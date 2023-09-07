@@ -81,21 +81,13 @@
   </div>
 
 <!--BOTON DE REGISTRARSE-->
-<ion-button  class="boton_registro" (click)="registrar()" [disabled]="!validarFormulario()" [routerLink]="['/home-page']">Registrarse</ion-button>
-
-
-
-
-
-
-<ion-button id="present-alert">Click Me</ion-button>
+<ion-button   id = "present-alert"class="boton_registro" (click)="registrar()" [disabled]="!validarFormulario()" [routerLink]="['/home-page']">Registrarse</ion-button>
 <ion-alert
   trigger="present-alert"
-  header="Alert"
-  subHeader="Important message"
-  message="This is an alert!"
+  header="Haz iniciado sesion correctamente"
   [buttons]="alertButtons"
 ></ion-alert>
+
 
 
 
