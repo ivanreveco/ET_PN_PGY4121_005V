@@ -5,7 +5,7 @@
     </ion-toolbar>
   </ion-header>
   
-  <ion-button  [routerLink]="['/home', { reload: true }]"> <
+  <ion-button  [routerLink]="['/home', { reload: true }]"> 
   </ion-button>
   
 
@@ -83,6 +83,27 @@
 <!--BOTON DE REGISTRARSE-->
 <ion-button  class="boton_registro" (click)="registrar()" [disabled]="!validarFormulario()" [routerLink]="['/home-page']">Registrarse</ion-button>
 
-  
+
+
+
+
+
+<ion-button id="present-alert">Click Me</ion-button>
+<ion-alert
+  trigger="present-alert"
+  header="Alert"
+  subHeader="Important message"
+  message="This is an alert!"
+  [buttons]="alertButtons"
+></ion-alert>
+
+
+
+
 
 </ion-content>
+
+
+
+
+

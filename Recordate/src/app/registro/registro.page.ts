@@ -1,22 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 
+
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.page.html',
   styleUrls: ['./registro.page.scss'],
 })
-export class RegistroPage implements OnInit {
+export class RegistroPage implements OnInit  {
 
   nombre = '';
   apellidos = '';
   email = '';
   password = '';
   confirmarPassword = '';
+  public alertButtons = 'OK';
 
-  constructor() { }
+  
+  constructor() {
+   
+   }
 
   ngOnInit() {
   }
+
 
   registrar() {
     // Validar que todos los campos estén completos
@@ -50,4 +57,18 @@ export class RegistroPage implements OnInit {
     // Devolver true si el formulario es válido
     return true;
   }
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
