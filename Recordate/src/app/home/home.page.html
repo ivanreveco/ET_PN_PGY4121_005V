@@ -22,11 +22,33 @@
 
   <!--LABEL DE INCIO-->
   <div class="label_inicio">
+    <ion-input
+      [(ngModel)]="correo_ingreso"
+      label="Ingrese su correo electronico"
+      label-placement="floating"
+      fill="outline"
+      placeholder=""
+      required
+      >
+    </ion-input>
+    <br>
+    <ion-input
+      [(ngModel)]="contrasena_ingreso"
+      label="Ingrese su contraseña"
+      label-placement="floating"
+      fill="outline"
+      placeholder=""
+      required
+      type="password"
+      >
+    </ion-input>
+
+
   </div>
 
 <!--Botones-->
 
-  <ion-button class="boton_incio">Inciar sesion</ion-button>
+  <ion-button class="boton_incio"(click)="login()" [disabled]="!validarIngreso()" [routerLink]="['/home-page']">Inciar sesion</ion-button>
   <p class="letras_google">o usar tu cuenta google</p>
 <!--BOTON GOOGLE CON LOGO-->
   <ion-button class="boton_google">Inciar sesion con<img src="assets/img/icono_google.png" alt="icono_google" class="google-img"></ion-button>
@@ -58,6 +80,3 @@
   </ion-content>
 
 
-
-  
-</ion-content>
