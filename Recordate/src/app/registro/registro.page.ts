@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { endWith } from 'rxjs';
 
 
 
@@ -37,6 +38,13 @@ export class RegistroPage implements OnInit  {
     if (this.user.password !== this.user.confirmarPassword) {
       return false;
     }
+
+    if (this.user.password.length <8){
+      return false;
+    }
+    if (!/.(gmail|yahoo|hotmail)./.test(this.user.email)) {
+      return false;
+      }
 
     // Devolver true si el formulario es válido
     localStorage.setItem('user',JSON.stringify(this.user));

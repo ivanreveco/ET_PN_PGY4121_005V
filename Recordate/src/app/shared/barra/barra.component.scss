@@ -61,6 +61,14 @@ ion-button{
 .out{
     width: 25px;
 }
-.containernombre{display: flex;
+.containernombre{
+    display: flex;
     justify-content: center;
     align-items: center;}
+.nombre{
+    margin-top: 10px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}

@@ -27,7 +27,7 @@
       label="nombre"
       label-placement="floating"
       fill="outline"
-      placeholder=""
+      placeholder="Nombre"
       required ></ion-input>
     <br>
     <ion-input
@@ -35,7 +35,7 @@
       label="Apellidos"
       label-placement="floating"
       fill="outline"
-      placeholder=""
+      placeholder="Apellido"
       required
       >
     </ion-input>
@@ -45,7 +45,7 @@
       label="Email"
       label-placement="floating"
       fill="outline"
-      placeholder=""
+      placeholder="example@gmail.com"
       required
       >
     </ion-input>
@@ -56,7 +56,7 @@
       label-placement="floating"
       fill="outline"
       type="password"
-      placeholder=""
+      placeholder="la contraseña debe contener 8 caracteres"
       required
       >
     </ion-input>
@@ -67,30 +67,16 @@
       label-placement="floating"
       fill="outline"
       type="password"
-      placeholder=""
+      placeholder="***"
       required
       >
     </ion-input>
     <br>
-
     <!--CHECBOX DE TYC-->
     <ion-checkbox class="chechbox_registro"></ion-checkbox><a href="#">Acepto los términos y condiciones</a>   
-
   </div>
-
 <!--BOTON DE REGISTRARSE-->
-
-
 <ion-button id = "present-alert"class="boton_registro" [disabled]="!validarFormulario()" [routerLink]="['/home-page']">Registrarse</ion-button>
-
-<!--Saludo-->
-<br>
-
-
-
-
-
-
 </ion-content>
 
 
