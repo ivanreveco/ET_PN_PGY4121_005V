@@ -24,13 +24,11 @@
   <div class="label_registro">
     <ion-input
       [(ngModel)]="nombre"
-      label="Nombres"
+      label="nombre"
       label-placement="floating"
       fill="outline"
       placeholder=""
-      required
-      >
-    </ion-input>
+      required ></ion-input>
     <br>
     <ion-input
       [(ngModel)]="apellidos"
@@ -81,12 +79,16 @@
   </div>
 
 <!--BOTON DE REGISTRARSE-->
-<ion-button   id = "present-alert"class="boton_registro" (click)="registrar()" [disabled]="!validarFormulario()" [routerLink]="['/home-page']">Registrarse</ion-button>
+<ion-button expand="full" (click)="obtenerNombre()" (click)="guardarNombre()">Guardar Informacion</ion-button>
+
+<ion-button id = "present-alert"class="boton_registro" (click)="registrar()" [disabled]="!validarFormulario()" [routerLink]="['/home-page']">Registrarse</ion-button>
 <ion-alert
   trigger="present-alert"
   header="Haz iniciado sesion correctamente"
   [buttons]="alertButtons"
 ></ion-alert>
+<!--Saludo-->
+<br>
 
 
 
