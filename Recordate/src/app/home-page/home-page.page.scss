@@ -20,5 +20,15 @@ ion-card{
 .add-note{
     position: relative;
     float: right;
+    margin-left: 30px;
     
+}
+.add-note{
+    animation: bounce 1s ;
+    animation-delay: 5s;
+    animation-iteration-count: 3;
+}
+@keyframes bounce{
+    100%{scale: 1;}
+    50%{scale: 1.5;}
 }
