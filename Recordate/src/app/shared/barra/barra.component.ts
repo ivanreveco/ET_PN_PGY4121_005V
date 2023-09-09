@@ -10,11 +10,12 @@ export class BarraComponent implements OnInit {
   nombre: string = '';
 
   constructor(
-    private alertCtrl: AlertController,
-    private navCtrl: NavController
+    private alertCtrl: AlertController,//controlar alerts
+    private navCtrl: NavController//controlar los links
   ) {}
 
   ngOnInit() {
+    //obtener dato nombre de user
     const userString = localStorage.getItem('user');
     if (userString !== null) {
       const user = JSON.parse(userString);
@@ -38,8 +39,8 @@ export class BarraComponent implements OnInit {
           text: 'OK',
           handler: () => {
             console.log('Cerrar sesión');
-            localStorage.removeItem('user');
-            this.navCtrl.navigateForward('/home');
+            localStorage.removeItem('user');//borrar datos del localstorage
+            this.navCtrl.navigateForward('/home');//redireccionar a  la pagina de loggin
           },
         },
       ],
