@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage implements OnInit  {
-
+  //crear user y sus atributos
   user={
   nombre: '',
   apellidos :'',
@@ -38,15 +38,17 @@ export class RegistroPage implements OnInit  {
     if (this.user.password !== this.user.confirmarPassword) {
       return false;
     }
-
-    if (this.user.password.length <8){
+    //validar que la contraseña no sea menor de 7 caracteres
+    if (this.user.password.length <7){
       return false;
     }
+    // Validar que el correo termine con hotmail yahoo o gmail
     if (!/.(gmail|yahoo|hotmail)./.test(this.user.email)) {
       return false;
       }
 
     // Devolver true si el formulario es válido
+    //guardar datos en el localstorage
     localStorage.setItem('user',JSON.stringify(this.user));
     return true;
   }
