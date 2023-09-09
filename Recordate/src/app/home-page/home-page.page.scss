@@ -8,10 +8,11 @@ ion-select{
 .card{
     justify-content: center;
     align-items: center;
+    color:white;
 }
 ion-card{
     height: 250px;
-    background-color:darkgray;
+    background-color:black;
     
 }
 .edit{
@@ -21,6 +22,7 @@ ion-card{
     position: relative;
     float: right;
     margin-left: 30px;
+    color: white;
     
 }
 .add-note{

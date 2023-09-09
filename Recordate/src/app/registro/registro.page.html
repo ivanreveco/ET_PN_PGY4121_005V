@@ -5,7 +5,7 @@
     </ion-toolbar>
   </ion-header>
   
-<ion-button  [routerLink]="['/home', { reload: true }]"> < </ion-button>
+<ion-button  [routerLink]="['/home', { reload: true }]"> Volver al Inicio </ion-button>
   
 
 <!--LOGO DE LA APP-->
@@ -27,7 +27,8 @@
       label-placement="floating"
       fill="outline"
       placeholder="Ingrese su nombre"
-      required ></ion-input>
+      required 
+      ></ion-input>
     <br>
     <ion-input
       [(ngModel)]="user.apellidos"
