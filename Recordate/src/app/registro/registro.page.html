@@ -5,9 +5,7 @@
     </ion-toolbar>
   </ion-header>
   
-  <ion-button  [routerLink]="['/home', { reload: true }]"> 
-    <
-  </ion-button>
+<ion-button  [routerLink]="['/home', { reload: true }]"> < </ion-button>
   
 
 <!--LOGO DE LA APP-->
@@ -25,10 +23,10 @@
   <div class="label_registro">
     <ion-input
       [(ngModel)]="user.nombre"
-      label="nombre"
+      label="Nombre"
       label-placement="floating"
       fill="outline"
-      placeholder="Nombre"
+      placeholder="Ingrese su nombre"
       required ></ion-input>
     <br>
     <ion-input
@@ -36,17 +34,17 @@
       label="Apellidos"
       label-placement="floating"
       fill="outline"
-      placeholder="Apellido"
+      placeholder="Ingrese sus apellidos"
       required
       >
     </ion-input>
     <br>
     <ion-input
       [(ngModel)]="user.email"
-      label="Email"
+      label="Correo electrónico"
       label-placement="floating"
       fill="outline"
-      placeholder="example@gmail.com"
+      placeholder="ejemplo@gmail.com"
       required
       >
     </ion-input>
@@ -57,7 +55,7 @@
       label-placement="floating"
       fill="outline"
       type="password"
-      placeholder="la contraseña debe contener 8 caracteres"
+      placeholder="Ej: 123456789"
       required
       >
     </ion-input>
@@ -68,7 +66,7 @@
       label-placement="floating"
       fill="outline"
       type="password"
-      placeholder="***"
+      placeholder="Ej: 123456789"
       required
       >
     </ion-input>
