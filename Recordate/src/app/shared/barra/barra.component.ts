@@ -1,23 +1,49 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AlertController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-barra',
   templateUrl: './barra.component.html',
   styleUrls: ['./barra.component.scss'],
 })
-export class BarraComponent  implements OnInit {
-
+export class BarraComponent implements OnInit {
   nombre: string = '';
 
-
-  constructor() { }
+  constructor(
+    private alertCtrl: AlertController,
+    private navCtrl: NavController
+  ) {}
 
   ngOnInit() {
-    const userString= localStorage.getItem('user');
-    if(userString!==null){
-      const user= JSON.parse(userString);
-      this.nombre=user.nombre;
+    const userString = localStorage.getItem('user');
+    if (userString !== null) {
+      const user = JSON.parse(userString);
+      this.nombre = user.nombre;
     }
+  }
+
+  async presentAlert() {
+    const alert = await this.alertCtrl.create({
+      header: 'Cerrar sesión',
+      message: '¿Está seguro de querer cerrar la sesión?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancelar');
+          },
+        },
+        {
+          text: 'OK',
+          handler: () => {
+            console.log('Cerrar sesión');
+            localStorage.removeItem('user');
+            this.navCtrl.navigateForward('/home');
+          },
+        },
+      ],
+    });
+    await alert.present();
   }
 }
