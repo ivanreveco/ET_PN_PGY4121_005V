@@ -1,5 +1,5 @@
 
-ion-select{
+.ion-select{
     --placeholder-color:white;
 }
 
@@ -8,21 +8,20 @@ ion-select{
     align-items: center;
     color:white;
 }
-ion-card{
+.ion-card{
     height: 250px;
-    background-color:rgba(0, 0, 0, 0.415);
-    
+    background-color:(0, 0, 0, 0.415);
 }
 .edit{
     width: 30px;
     margin-top: 10px;
+    color: white;
 }
 .add-note{
     position: relative;
     float: right;
     margin-left: 30px;
     color: white;
-    
 }
 .add-note{
     animation: bounce 1s ;
@@ -37,5 +36,17 @@ ion-card{
 
 .titulo_cards{
     font-size: 25px;
+    color: white;
+}
+
+.containercard{
+    background-color: black;
+}
+
+.caard{
+    background-color:darkslateblue;
+}
+
+.descripcion_nota{
     color: white;
 }
