@@ -5,8 +5,9 @@
     </ion-toolbar>
   </ion-header>
   
-<ion-button  [routerLink]="['/home', { reload: true }]"> Volver al Inicio </ion-button>
-  
+  <div class="boton_regresa_formulario">
+    <ion-icon name="arrow-undo-outline" [routerLink]="['/home', { reload: true }]" style="font-size: 40px;"></ion-icon>
+  </div>
 
 <!--LOGO DE LA APP-->
   <div class="logo-container">
