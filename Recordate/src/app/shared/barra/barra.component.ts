@@ -1,19 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { AlertController, NavController } from '@ionic/angular';
+import { Component, OnInit , OnDestroy} from '@angular/core';
+import { AlertController, NavController , ModalController} from '@ionic/angular';
 
 @Component({
   selector: 'app-barra',
   templateUrl: './barra.component.html',
   styleUrls: ['./barra.component.scss'],
 })
-export class BarraComponent implements OnInit {
+export class BarraComponent implements OnInit , OnDestroy{
   nombre: string = '';
   apellidos: string = '';
   email : string = '';
 
   constructor(
     private alertCtrl: AlertController,//controlar alerts
-    private navCtrl: NavController//controlar los links
+    private navCtrl: NavController,//controlar los links
+    private modalController : ModalController
   ) {}
 
   ngOnInit() {
@@ -43,12 +44,17 @@ export class BarraComponent implements OnInit {
           text: 'OK',
           handler: () => {
             console.log('Cerrar sesión');
-            localStorage.removeItem('user');//borrar datos del localstorage
-            this.navCtrl.navigateForward('/home');//redireccionar a  la pagina de loggin
+            localStorage.removeItem('user'); // Verifica que esto esté funcionando
+            this.navCtrl.navigateForward('/home'); // Redirecciona a la página de inicio de sesión
           },
         },
       ],
     });
     await alert.present();
+  }
+
+  ngOnDestroy() {
+    this.modalController.dismiss();
+    
   }
 }
