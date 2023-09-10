@@ -1,8 +1,6 @@
 
 ion-select{
     --placeholder-color:white;
-   
-   
 }
 
 .card{
@@ -12,7 +10,7 @@ ion-select{
 }
 ion-card{
     height: 250px;
-    background-color:black;
+    background-color:rgba(0, 0, 0, 0.415);
     
 }
 .edit{
@@ -33,4 +31,10 @@ ion-card{
 @keyframes bounce{
     100%{scale: 1;}
     50%{scale: 1.5;}
+}
+
+
+.titulo_cards{
+    font-size: 25px;
+    color: white;
 }

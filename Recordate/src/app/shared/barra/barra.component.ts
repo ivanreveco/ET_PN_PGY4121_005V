@@ -8,6 +8,8 @@ import { AlertController, NavController } from '@ionic/angular';
 })
 export class BarraComponent implements OnInit {
   nombre: string = '';
+  apellidos: string = '';
+  email : string = '';
 
   constructor(
     private alertCtrl: AlertController,//controlar alerts
@@ -20,6 +22,8 @@ export class BarraComponent implements OnInit {
     if (userString !== null) {
       const user = JSON.parse(userString);
       this.nombre = user.nombre;
+      this.apellidos = user.apellidos;
+      this.email = user.email;
     }
   }
 

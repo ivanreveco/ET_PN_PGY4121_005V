@@ -71,7 +71,17 @@ ion-button{
     justify-content: center;
     align-items: center;
     color: white;
+    font-size: 25px;
 }
 .modal{
     backdrop-filter: blur(10px);
+}
+
+.nombre_correo{
+    margin-top: 10px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 15px;
 }
