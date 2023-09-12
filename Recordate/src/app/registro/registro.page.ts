@@ -16,7 +16,9 @@ export class RegistroPage implements OnInit  {
   email:'',
   password :'',
   confirmarPassword: ''
+
 }
+  aceptaTerminos = false;
   
   constructor() {}
 
@@ -44,6 +46,9 @@ export class RegistroPage implements OnInit  {
     if (!/.(gmail|yahoo|hotmail)./.test(this.user.email)) {
       return false;
       }
+    if(!this.aceptaTerminos){
+      return false;
+    }
 
     // Devolver true si el formulario es válido
     //guardar datos en el localstorage

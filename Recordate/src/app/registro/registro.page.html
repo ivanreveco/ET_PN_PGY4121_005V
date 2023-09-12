@@ -74,7 +74,7 @@
     </ion-input>
     <br>
     <!--CHECBOX DE TYC-->
-    <ion-checkbox class="chechbox_registro"></ion-checkbox><a href="#">Acepto los términos y condiciones</a>   
+    <ion-checkbox class="chechbox_registro"  [(ngModel)]="aceptaTerminos"></ion-checkbox><a href="#">Acepto los términos y condiciones</a>   
   </div>
 <!--BOTON DE REGISTRARSE-->
 <ion-button id = "present-alert"class="boton_registro" [disabled]="!validarFormulario()" [routerLink]="['/home']">Registrarse</ion-button>
