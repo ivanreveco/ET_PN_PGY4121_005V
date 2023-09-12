@@ -18,15 +18,13 @@ export class RegistroPage implements OnInit  {
   confirmarPassword: ''
 }
   
-  constructor() {
-   
-   }
+  constructor() {}
 
   ngOnInit() {
   }
 
 
- 
+
 
   validarFormulario(): boolean {
     // Validar que todos los campos estén completos
