@@ -15,6 +15,7 @@ export class HomePage implements OnInit{
     email:'',
     password :'',
     confirmarPassword: ''
+
   }
   ValidarFormulario = false;
 
@@ -25,7 +26,9 @@ export class HomePage implements OnInit{
   }
 
 
-
+  isLoggedIn(){
+    
+  }
 
   ngOnInit(){
     const userString = localStorage.getItem('user');
@@ -102,7 +105,8 @@ export class HomePage implements OnInit{
     toast.present();
   }
 
-  
-  
+
+
+
 
 }
