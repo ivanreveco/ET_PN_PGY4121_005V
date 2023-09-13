@@ -15,6 +15,7 @@ export class HomePage implements OnInit{
     password :'',
     confirmarPassword: ''
   }
+  ValidarFormulario = false;
 
   public alertButtons = 'OK';
 
@@ -54,6 +55,9 @@ export class HomePage implements OnInit{
     //guardar datos en el localstorage
     localStorage.setItem('user',JSON.stringify(this.user));
     return true;
+  }
+  ActualizarFormulario() {
+    this.ValidarFormulario = this.user.password.length >= 8;
   }
 
 }

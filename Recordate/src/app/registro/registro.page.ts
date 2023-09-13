@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 
 
@@ -18,11 +19,26 @@ export class RegistroPage implements OnInit  {
   confirmarPassword: ''
 
 }
+  public alertButtons = [
+    {
+      text: 'OK', 
+      heandler : () => {
+      }
+    }
+  ]
   aceptaTerminos = false;
   
-  constructor() {}
+  constructor(private alertController: AlertController) {}
 
   ngOnInit() {
+  }
+
+  async PresentAlert(){
+    const alert = await this.alertController.create ({
+      header: 'Te haz registrado exitosamente. Ahora coloca tu correo y contraseña',
+      buttons: this.alertButtons,
+    });
+    await alert.present();
   }
 
 
