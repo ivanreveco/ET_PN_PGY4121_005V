@@ -11,41 +11,49 @@
 .ion-card{
     height: 250px;
    
+
 }
 .edit{
     width: 30px;
     margin-top: 10px;
     color: white;
+
 }
 .add-note{
     position: relative;
     float: right;
     margin-left: 30px;
     color: white;
+
 }
 .add-note{
     animation: bounce 1s ;
     animation-delay: 2s;
     animation-iteration-count: 3;
+
 }
 @keyframes bounce{
     100%{scale: 1;}
     50%{scale: 1.5;}
+
 }
 
 
 .titulo_cards{
     font-size: 25px;
     color: white;
+
 }
 
 
 .caard{
     background-color:darkgrey;
     border-radius: 19px;
+
 }
 
 .descripcion_nota{
     color: white;
+    
 }
 

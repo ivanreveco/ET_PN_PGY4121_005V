@@ -9,16 +9,22 @@ describe('HomePage', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+
       declarations: [HomePage],
       imports: [IonicModule.forRoot()]
+
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomePage);
+
     component = fixture.componentInstance;
+
     fixture.detectChanges();
   });
 
   it('should create', () => {
+
     expect(component).toBeTruthy();
+    
   });
 });

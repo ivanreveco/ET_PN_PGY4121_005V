@@ -12,6 +12,8 @@ export class HomePagePage implements OnInit {
 
   constructor () {}
 
+
+  
   ngOnInit() {
   }
 
