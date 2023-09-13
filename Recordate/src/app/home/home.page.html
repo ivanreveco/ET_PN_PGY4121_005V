@@ -20,7 +20,6 @@
   <div class="label_inicio">
     <ion-input
       [(ngModel)]="user.email"
-      (ngModelChange)="ActualizarFormulario()"
       label="Ingrese su correo electronico"
       label-placement="floating"
       fill="outline"
@@ -31,7 +30,6 @@
     <br>
     <ion-input
       [(ngModel)]="user.password"
-      (ngModelChange)="ActualizarFormulario()"
       label="Ingrese su contraseña"
       label-placement="floating"
       fill="outline"
@@ -46,7 +44,7 @@
 
 <!--Botones-->
 
-  <ion-button class="boton_incio" [routerLink]="['/home-page']" [disabled]="!ValidarFormulario" (click)="ActualizarFormulario">Inciar sesion</ion-button>
+  <ion-button class="boton_incio" (click)="IngresoFormulario()">Inciar sesion</ion-button>
   <p class="letras_google">o usar tu cuenta google</p>
 <!--BOTON GOOGLE CON LOGO-->
   <ion-button id="present-alert" class="boton_google">Inciar sesion con<img src="assets/img/icono_google.png" alt="icono_google" class="google-img"></ion-button>

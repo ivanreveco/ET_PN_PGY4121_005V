@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { NavController , ToastController} from '@ionic/angular';
+import { Component, OnInit} from '@angular/core';
 
 
 @Component({
@@ -20,7 +21,11 @@ export class HomePage implements OnInit{
   public alertButtons = 'OK';
 
 
-  constructor() {}
+  constructor(private navCtrl: NavController, private toastController : ToastController) {
+  }
+
+
+
 
   ngOnInit(){
     const userString = localStorage.getItem('user');
@@ -31,6 +36,7 @@ export class HomePage implements OnInit{
       console.log('No hay datos en localStorage.');
     }
   }
+                                                                                                                                              
   validarFormulario(): boolean {
     // Validar que todos los campos estén completos
     if (this.user.nombre === '' || this.user.apellidos === '' || this.user.email === '' || this.user.password === '' || this.user.confirmarPassword === '') {
@@ -56,8 +62,47 @@ export class HomePage implements OnInit{
     localStorage.setItem('user',JSON.stringify(this.user));
     return true;
   }
-  ActualizarFormulario() {
-    this.ValidarFormulario = this.user.password.length >= 8;
+    
+
+
+  IngresoFormulario() {
+    // Recupera los datos almacenados en el LocalStorage
+    const userString = localStorage.getItem('user');
+
+    if (userString) {
+      const storedUserData = JSON.parse(userString);
+
+      // Verifica si el nombre de usuario y la contraseña coinciden
+      if (
+        this.user.email === storedUserData.email &&
+        this.user.password === storedUserData.password
+      ) {
+        // Inicio de sesión exitoso, redirige a la página principal
+        this.navCtrl.navigateForward('/home-page'); // Cambia '/home' por la ruta correcta
+      } else {
+        // Las credenciales no coinciden, muestra un mensaje de error
+        console.log('Credenciales incorrectas.');
+        this.mostrarMensaje();
+      }
+    } else {
+      // No se encontraron datos de usuario en el LocalStorage
+      console.log('La cuenta no existe.');
+      this.mostrarMensaje();
+    }
+
+    
   }
+
+  async mostrarMensaje() {
+    const toast = await this.toastController.create({
+      message: 'La cuenta ingresada no es correcta o no estas registrado',
+      duration: 1500, // Duración en milisegundos
+      position: 'bottom' // Posición en la que aparecerá el mensaje
+    });
+    toast.present();
+  }
+
+  
+  
 
 }
