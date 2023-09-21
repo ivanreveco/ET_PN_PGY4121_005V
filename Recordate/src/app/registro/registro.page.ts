@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { UtilService } from '../services/util.service';
 
 
 
@@ -28,7 +29,7 @@ export class RegistroPage implements OnInit  {
   ]
   aceptaTerminos = false;
   
-  constructor(private alertController: AlertController) {}
+  constructor(private alertController: AlertController, private utilsvc: UtilService) {}
 
   ngOnInit() {
   }
@@ -68,7 +69,9 @@ export class RegistroPage implements OnInit  {
 
     // Devolver true si el formulario es válido
     //guardar datos en el localstorage
-    localStorage.setItem('user',JSON.stringify(this.user));
+    //localStorage.setItem('user',JSON.stringify(this.user));
+    this.utilsvc.setElementInLocalStorage('user',this.user);
+
     return true;
   }
 

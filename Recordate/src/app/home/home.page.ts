@@ -1,5 +1,6 @@
 import { NavController , ToastController} from '@ionic/angular';
 import { Component, OnInit} from '@angular/core';
+import { UtilService } from '../services/util.service';
 
 
 @Component({
@@ -23,7 +24,9 @@ export class HomePage implements OnInit{
   public alertButtons = 'OK';
 
 
-  constructor(private navCtrl: NavController, private toastController : ToastController) {
+  constructor(private navCtrl: NavController, 
+    private toastController : ToastController,
+    private utilsvc: UtilService) {
   }
 
 
@@ -33,7 +36,8 @@ export class HomePage implements OnInit{
 
 
   ngOnInit(){
-    const userString = localStorage.getItem('user');
+    //const userString = localStorage.getItem('user');
+    const userString = this.utilsvc.getElementInLocalStorage('user');
     if (userString) {
 
       const user = JSON.parse(userString);
@@ -73,7 +77,7 @@ export class HomePage implements OnInit{
 
     // Devolver true si el formulario es válido
     //guardar datos en el localstorage
-    localStorage.setItem('user',JSON.stringify(this.user));
+    //localStorage.setItem('user',JSON.stringify(this.user));
     
     return true;
   }
@@ -82,7 +86,7 @@ export class HomePage implements OnInit{
 
   IngresoFormulario() {
     // Recupera los datos almacenados en el LocalStorage
-    const userString = localStorage.getItem('user');
+    const userString = this.utilsvc.getElementInLocalStorage('user');
 
     if (userString) {
       const storedUserData = JSON.parse(userString);
