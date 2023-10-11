@@ -1,0 +1,76 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+     
+    </ion-toolbar>
+  </ion-header>
+  
+  <div class="boton_regresa_formulario">
+    <ion-icon name="arrow-undo-outline" [routerLink]="['/home', { reload: true }]" style="font-size: 40px;"></ion-icon>
+  </div>
+
+<!--LOGO DE LA APP-->
+  <div class="logo-container">
+    <img src="assets/img/recor.jpg" alt="RecorDate" class="recordate-img">
+  </div>
+
+<!--TITULO DE REGISTRO-->
+  <div class="titulo_login">
+    <strong>¡Registrate!</strong>
+  </div>
+
+
+<!--LABEL DE LOS INPUTS DE REGISTROS-->
+  <div class="label_registro">
+   <form (keyup.enter)="submit()"  (ngSubmit)="submit()" >
+    <app-custom-input [control]="form.controls.email" type="email" label="Correo" icon="mail-outline"></app-custom-input>
+    <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.dirty">
+      <div *ngIf="form.controls.email.errors?.['required']">Ingresa tu correo</div>
+      <div *ngIf="form.controls.email.errors?.['email']">Ingresa un email valido</div>
+    </div>
+
+    <app-custom-input [control]="form.controls.name" type="text" label="Nombre" icon="person-outline"></app-custom-input>
+    <div class="validators" *ngIf="form.controls.name.errors && form.controls.name.dirty">
+      <div *ngIf="form.controls.name.errors?.['required']">Ingresa tu nombre</div>
+      <div *ngIf="form.controls.name.errors?.['minLength']">Minimo de 4 caracteres</div>
+    </div>
+
+    <app-custom-input [control]="form.controls.lastName" type="text" label="Apellido" icon="person-outline"></app-custom-input>
+    <div class="validators" *ngIf="form.controls.lastName.errors && form.controls.lastName.dirty">
+      <div *ngIf="form.controls.lastName.errors?.['required']">Ingresa tu apellido</div>
+      <div *ngIf="form.controls.lastName.errors?.['minLength']">Minimo de 4 caracteres</div>
+    </div>
+
+    <app-custom-input [control]="form.controls.password" type="password" label="contraseña" icon="lock-closed-outline"></app-custom-input>
+    <div class="validators" *ngIf="form.controls.password.errors && form.controls.password.dirty">
+      <div *ngIf="form.controls.password.errors?.['required']">Ingresa tu contraseña</div>
+      <div *ngIf="form.controls.password.errors?.['minLength']">Contraseña debe contener minimo 8 caracteres</div>
+    </div>
+
+    <app-custom-input [control]="form.controls.confirmPasword" type="password" label=" Confirmar Contraseña" icon="lock-closed-outline"></app-custom-input>
+    <div class="validators" *ngIf="form.controls.confirmPasword.errors && form.controls.password.dirty">
+      <div *ngIf="form.controls.confirmPasword.errors?.['required']">Ingresa tu contraseña</div>
+      <div *ngIf="form.controls.confirmPasword.errors?.['notMach']">contreñas no coinciden</div>
+    </div>
+
+    <ion-checkbox class="chechbox_registro" ></ion-checkbox>Acepto los términos y condiciones
+
+    
+  <ion-button class="boton_registro" type="submit" [disabled]="form.invalid" >
+    registrarte
+  </ion-button>
+  
+  </form>
+  </div>
+<!--BOTON DE REGISTRARSE-->
+
+
+
+
+
+</ion-content>
+
+
+
+
+
