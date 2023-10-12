@@ -23,7 +23,7 @@ const routes: Routes = [
   },
   {
     path: 'registro',
-    loadChildren: () => import('./auth/registro/registro.module').then( m => m.RegistroPageModule),canActivate:[AuthGuard]
+    loadChildren: () => import('./auth/registro/registro.module').then( m => m.RegistroPageModule)
   },
   
  
