@@ -8,7 +8,7 @@ import { User } from '../models/user.models';
   providedIn: 'root'
 })
 export class FirebaseService {
-
+  
   constructor(
     private auth: AngularFireAuth,
     private db: AngularFirestore,
@@ -26,4 +26,11 @@ export class FirebaseService {
     const auth = getAuth(); 
     return updateProfile(auth.currentUser, user);
   }
+  getAuthState(){
+    return this.auth.authState
+  }
+
+  
+  
+  
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LoadingController, LoadingOptions, ToastController } from '@ionic/angular';
+import { LoadingController, LoadingOptions, ToastController, ToastOptions } from '@ionic/angular';
 import { Router, RouterLink } from '@angular/router';
 
 @Injectable({
@@ -23,14 +23,11 @@ export class UtilsService {
    getElementInStorage(key: string){
     return JSON.parse(localStorage.getItem(key))
    }
-   async presentToast() {
-    const toast = await this.toastController.create({
-      message: 'Your settings have been saved.',
-      duration: 2000
-    });
+   async presentToast(opts:ToastOptions) {
+    const toast = await this.toastController.create(opts);
     toast.present();
    }
-   
+
    RouterLink(url : string){
     return this.router.navigateByUrl(url);
    }

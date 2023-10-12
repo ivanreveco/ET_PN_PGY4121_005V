@@ -4,6 +4,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {UtilsService, } from '../../services/utils.service'
 import { User } from 'src/app/models/user.models';
 import { customValidators } from 'src/app/util/custom-validators';
+import { Router} from '@angular/router';
+
 
 
 
@@ -32,18 +34,21 @@ export class RegistroPage implements OnInit  {
     this.form.controls.confirmPasword.updateValueAndValidity();
   }
   constructor( private firebaseSvc :FirebaseService,
-  private utilsSvc: UtilsService){
+  private utilsSvc: UtilsService,
+  private router: Router){
    
   }
 
   ngOnInit() {
     this.confirmPasswordV()
   }
-  submit(){
-    if(this.form.valid){
-      console.log(this.form.value)
-      this.utilsSvc.presentLoading({ message:'Registrando...'})
-      this.firebaseSvc.SignUp(this.form.value as User).then(async res =>{
+  redirectToHomePage() {
+    this.router.navigateByUrl('/home-page');
+  }
+  submit() {
+    if (this.form.valid) {
+      this.utilsSvc.presentLoading({message: 'Registrando...', duration: 1000 });
+      this.firebaseSvc.SignUp(this.form.value as User).then(async res => {
         console.log(res);
 
         await this.firebaseSvc.updateUser({displayName: this.form.value.name})
@@ -53,31 +58,28 @@ export class RegistroPage implements OnInit  {
           email:res.user.email,
           lastName:this.form.value.lastName
         }
-        this.utilsSvc.setElementeInStorage('user',user);
-        this.utilsSvc.RouterLink('/note') 
 
+        this.utilsSvc.setElementeInStorage('user', user);
         this.utilsSvc.dismissloading();
-      
-      })
+
+        this.utilsSvc.presentToast({
+          message: `Te damos la bienvenida ${user.name}`,
+          duration: 1500,
+          color: 'primary',
+          icon: 'person-outline',
+          mode: 'ios'
+        });
+        this.form.reset();
+      }, error => {
+        this.utilsSvc.dismissloading();
+        this.utilsSvc.presentToast({
+          message: error.message,
+          duration: 5000,
+          color: 'warning',
+          icon: 'alert-circle-outline'
+        });
+      });
     }
   }
+
 }
-
- 
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
