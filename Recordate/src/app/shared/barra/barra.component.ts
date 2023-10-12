@@ -1,5 +1,6 @@
 import { Component, OnInit , OnDestroy} from '@angular/core';
 import { AlertController, NavController , ModalController} from '@ionic/angular';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-barra',
@@ -14,7 +15,8 @@ export class BarraComponent implements OnInit , OnDestroy{
   constructor(
     private alertCtrl: AlertController,//controlar alerts
     private navCtrl: NavController,//controlar los links
-    private modalController : ModalController
+    private modalController : ModalController,
+    private firebasSvc: FirebaseService
   ) {}
 
   ngOnInit() {
@@ -28,30 +30,11 @@ export class BarraComponent implements OnInit , OnDestroy{
     }
   }
 
-  async presentAlert() {
-    const alert = await this.alertCtrl.create({
-      header: 'Cerrar sesión',
-      message: '¿Está seguro de querer cerrar la sesión?',
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancelar');
-          },
-        },
-        {
-          text: 'OK',
-          handler: () => {
-            console.log('Cerrar sesión');
-            localStorage.removeItem('user'); // Verifica que esto esté funcionando
-            this.navCtrl.navigateForward('/home'); // Redirecciona a la página de inicio de sesión
-          },
-        },
-      ],
-    });
-    await alert.present();
+  singOut(){
+    this.firebasSvc.singOut();
   }
+
+  
 
   ngOnDestroy() {
     this.modalController.dismiss();
