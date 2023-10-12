@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { NoAuthGuard } from './guards/no-auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./auth/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./auth/home/home.module').then( m => m.HomePageModule),canActivate:[NoAuthGuard]
   },
   {
     path: '',
@@ -13,11 +15,11 @@ const routes: Routes = [
   },
   {
     path: 'home-page',
-    loadChildren: () => import('./home-page/home-page.module').then( m => m.HomePagePageModule)
+    loadChildren: () => import('./home-page/home-page.module').then( m => m.HomePagePageModule),canActivate:[AuthGuard]
   },
   {
     path: 'note',
-    loadChildren: () => import('./note/note.module').then( m => m.NotePageModule)
+    loadChildren: () => import('./note/note.module').then( m => m.NotePageModule),canActivate:[AuthGuard]
   },
   {
     path: 'registro',
