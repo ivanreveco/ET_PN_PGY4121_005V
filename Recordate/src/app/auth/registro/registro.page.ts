@@ -20,6 +20,8 @@ export class RegistroPage implements OnInit {
     confirmPasword: new FormControl(''),
   });
 
+  errorMessage: string;  // Added error message variable
+
   constructor(
     private firebaseSvc: FirebaseService,
     private utilsSvc: UtilsService,
@@ -41,16 +43,19 @@ export class RegistroPage implements OnInit {
   submit() {
     if (this.form.valid) {
       this.utilsSvc.presentLoading({ message: 'Registrando...', duration: 1000 });
+
+      const displayName = `${this.form.value.name} ${this.form.value.lastName}`;
+
       this.firebaseSvc.SignUp(this.form.value as User).then(
         async (res) => {
-          this.form.reset();
-          this.redirectToHomePage(); 
-          console.log(res);
+          // Set the displayName after signing up the user
+          await res.user.updateProfile({
+            displayName: displayName,
+          });
 
-          await this.firebaseSvc.updateUser({ displayName: this.form.value.name });
           let user: User = {
             uid: res.user.uid,
-            name: res.user.displayName,
+            name: displayName, // Use displayName set in Firebase
             email: res.user.email,
             lastName: this.form.value.lastName,
           };
@@ -58,7 +63,9 @@ export class RegistroPage implements OnInit {
           this.utilsSvc.setElementeInStorage('user', user);
           this.utilsSvc.dismissloading();
 
-         
+          this.errorMessage = ''; // Reset error message on success
+          this.redirectToHomePage();
+          console.log(res);
         },
         (error) => {
           this.utilsSvc.dismissloading();
@@ -75,5 +82,8 @@ export class RegistroPage implements OnInit {
 
   private redirectToHomePage() {
     this.router.navigateByUrl('/home-page');
+    setTimeout(() => {
+      location.reload();
+    }, 100);
   }
 }

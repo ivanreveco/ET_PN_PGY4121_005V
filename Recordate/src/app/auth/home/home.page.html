@@ -27,7 +27,7 @@
   </div>
 
 
-  <ion-button class="boton_incio" type="submit" [disabled]="form.invalid" >
+  <ion-button class="boton_incio" (click)="submit()" type="submit" [disabled]="form.invalid" >
     iniciar session
   </ion-button>
   

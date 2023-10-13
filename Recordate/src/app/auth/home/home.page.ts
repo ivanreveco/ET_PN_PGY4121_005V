@@ -35,8 +35,8 @@ export class HomePage implements OnInit{
 
   submit() {
     if (this.form.valid) {
-      this.utilsSvc.presentLoading({ message: 'Registrando...', duration: 1000 });
-      this.firebaseSvc.SignUp(this.form.value as User).then(
+      this.utilsSvc.presentLoading({ message: 'iniciando session...', duration: 1000 });
+      this.firebaseSvc.login(this.form.value as User).then(
         async (res) => {
           this.form.reset();
           this.redirectToHomePage(); 
@@ -57,7 +57,7 @@ export class HomePage implements OnInit{
         (error) => {
           this.utilsSvc.dismissloading();
           this.utilsSvc.presentToast({
-            message: 'Correo ya existe',
+            message: 'Correo o contraseña incorrecta',
             duration: 5000,
             color: 'warning',
             icon: 'alert-circle-outline',
@@ -68,6 +68,9 @@ export class HomePage implements OnInit{
   }
   private redirectToHomePage() {
     this.router.navigateByUrl('/home-page');
+    setTimeout(() => {
+      location.reload();
+    }, 100);
   }
 
 }
