@@ -13,25 +13,22 @@
     <strong>¡Bienvenido!</strong> <br>
   </div> 
   <!--LABEL DE INCIO-->
-  <form (keyup.enter)="submit()"  (ngSubmit)="submit()"  class="form-loggin">
-
-  <app-custom-input [control]="form.controls.email" type="email" label="Correo" icon="mail-outline"></app-custom-input>
-  <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.dirty">
-    <div *ngIf="form.controls.email.errors?.['required']">Ingresa tu correo</div>
-    <div *ngIf="form.controls.email.errors?.['email']">Ingresa un email valido</div>
-  </div>
-    
-  <app-custom-input [control]="form.controls.password" type="password" label="contraseña" icon="lock-closed-outline"></app-custom-input>
-  <div class="validators" *ngIf="form.controls.password.errors && form.controls.password.dirty">
-    <div *ngIf="form.controls.password.errors?.['required']">Ingresa tu contraseña</div>
-  </div>
-
-
-  <ion-button class="boton_incio" (click)="submit()" type="submit" [disabled]="form.invalid" >
-    iniciar session
-  </ion-button>
+  <form (keyup.enter)="submit()" (ngSubmit)="submit()" class="form-loggin">
+    <app-custom-input [control]="form.controls.email" type="email" label="Ingresa tu correo"  icon="mail-outline" ></app-custom-input>
+    <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.dirty">
+      <div *ngIf="form.controls.email.errors?.['required']">Ingresa un email valido</div>
+      <div *ngIf="form.controls.email.errors?.['email']">Ingresa un email valido</div>
+    </div>
   
-</form>
+    <app-custom-input [control]="form.controls.password" type="password" label="Ingresa tu contraseña" icon="lock-closed-outline" ></app-custom-input>
+    <div class="validators" *ngIf="form.controls.password.errors && form.controls.password.dirty">
+      <div *ngIf="form.controls.password.errors?.['required']">Ingresa contraseña valida</div>
+    </div>
+  
+    <ion-button class="boton_incio" (click)="submit()" type="submit" [disabled]="form.invalid">
+      iniciar session
+    </ion-button>
+  </form>
  
     <!--Botones-class="boton_incio"-->
 

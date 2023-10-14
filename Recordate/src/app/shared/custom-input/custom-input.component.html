@@ -1,11 +1,12 @@
 <ion-item class="ion-margin-vertical">
-  
-  <ion-label position="floating"><ion-icon *ngIf="icon" slot="start" [name]="icon"></ion-icon>{{ label }}</ion-label>
-  <ion-input [autocomplete]="autocomplete" [type]="type" [formControl]="control" ></ion-input>
+  <ion-label position="floating" class="custom-label">
+    <ion-icon *ngIf="icon" slot="start" [name]="icon" class="label"></ion-icon> {{ label }}
+    <br>
+  </ion-label>
+  <ion-input [autocomplete]="autocomplete" [type]="type" [formControl]="control"></ion-input>
   <ion-buttons *ngIf="isPassword" slot="end">
-    <ion-button (click)="showPassword()">
-    <ion-icon  [name]="hide ? 'eye-outline':'eye-off-outline'"></ion-icon>
+    <ion-button (click)="showPassword()" class="showPassword">
+      <ion-icon [name]="hide ? 'eye-outline':'eye-off-outline'"></ion-icon>
     </ion-button>
   </ion-buttons>
 </ion-item>
-
