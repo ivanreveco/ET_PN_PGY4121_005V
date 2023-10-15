@@ -13,6 +13,7 @@
     <strong>¡Bienvenido!</strong> <br>
   </div> 
   <!--LABEL DE INCIO-->
+  
   <form (keyup.enter)="submit()" (ngSubmit)="submit()" class="form-loggin">
     <app-custom-input [control]="form.controls.email" type="email" label="Ingresa tu correo"  icon="mail-outline" ></app-custom-input>
     <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.dirty">
@@ -48,4 +49,4 @@
 <!--BOTON REGISTRARSE-->
   <ion-button  class="boton_registrarse"   [routerLink]="['/registro']">¡Regístrate!</ion-button>
 
-
+<br>
