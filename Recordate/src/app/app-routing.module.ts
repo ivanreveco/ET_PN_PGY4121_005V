@@ -15,11 +15,11 @@ const routes: Routes = [
   },
   {
     path: 'home-page',
-    loadChildren: () => import('./home-page/home-page.module').then( m => m.HomePagePageModule),canActivate:[AuthGuard]
+    loadChildren: () => import('./pages/home-page/home-page.module').then( m => m.HomePagePageModule),canActivate:[AuthGuard]
   },
   {
     path: 'note',
-    loadChildren: () => import('./note/note.module').then( m => m.NotePageModule),canActivate:[AuthGuard]
+    loadChildren: () => import('./pages/note/note.module').then( m => m.NotePageModule),canActivate:[AuthGuard]
   },
   {
     path: 'registro',

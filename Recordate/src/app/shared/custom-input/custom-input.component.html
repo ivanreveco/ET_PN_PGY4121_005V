@@ -1,12 +1,24 @@
 <ion-item class="ion-margin-vertical">
   <ion-label position="floating" class="custom-label">
     <ion-icon *ngIf="icon" slot="start" [name]="icon" class="label"></ion-icon> {{ label }}
-    <br>
   </ion-label>
-  <ion-input [autocomplete]="autocomplete" [type]="type" [formControl]="control"></ion-input>
-  <ion-buttons *ngIf="isPassword" slot="end">
-    <ion-button (click)="showPassword()" class="showPassword">
-      <ion-icon [name]="hide ? 'eye-outline':'eye-off-outline'"></ion-icon>
-    </ion-button>
-  </ion-buttons>
+
+  <!-- Utilizamos ion-select solo para el campo tipoNotaId -->
+  <ng-container *ngIf="type === 'select' && allowedOptions">
+    <ion-select [formControl]="control">
+      <ion-select-option *ngFor="let option of allowedOptions" [value]="option">
+        {{ option }}
+      </ion-select-option>
+    </ion-select>
+  </ng-container>
+
+  <!-- Utilizamos ion-input para otros tipos -->
+  <ng-container *ngIf="type !== 'select' || !allowedOptions">
+    <ion-input [type]="isPassword ? (hide ? 'password' : 'text') : 'text'" [formControl]="control"></ion-input>
+    <ion-buttons *ngIf="isPassword" slot="end">
+      <ion-button (click)="showPassword()" class="showPassword">
+        <ion-icon [name]="hide ? 'eye-outline':'eye-off-outline'"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ng-container>
 </ion-item>

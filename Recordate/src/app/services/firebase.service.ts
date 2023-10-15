@@ -37,6 +37,11 @@ export class FirebaseService {
     this.utilsSvc.RouterLink('/home');
     localStorage.removeItem('user');
   }
+
+  //firebase
+  addToSubcollection(path: string, subcollectionName: string, object: any) {
+    return this.db.doc(path).collection(subcollectionName).add(object)
+  }
   
   
 }
