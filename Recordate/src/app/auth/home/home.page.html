@@ -15,7 +15,7 @@
   <!--LABEL DE INCIO-->
   
   <form (keyup.enter)="submit()" (ngSubmit)="submit()" class="form-loggin">
-    <app-custom-input [control]="form.controls.email" type="email" label="Ingresa tu correo"  icon="mail-outline" ></app-custom-input>
+    <app-custom-input [control]="form.controls.email" type="email" label="Ingresa tu correo"  icon="mail-outline" shape="round"></app-custom-input>
     <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.dirty">
       <div *ngIf="form.controls.email.errors?.['required']">Ingresa un email válido</div>
       <div *ngIf="form.controls.email.errors?.['email']">Ingresa un email válido</div>
@@ -26,7 +26,7 @@
       <div *ngIf="form.controls.password.errors?.['required']">Ingresa una contraseña válida</div>
     </div>
   
-    <ion-button class="boton_incio" (click)="submit()" type="submit" [disabled]="form.invalid">
+    <ion-button class="boton_incio" (click)="submit()" type="submit" [disabled]="form.invalid" shape="round">
       iniciar sesión
     </ion-button>
   </form>
@@ -36,7 +36,7 @@
   
   <p class="letras_google">O usar tu cuenta google</p>
 <!--BOTON GOOGLE CON LOGO-->
-  <ion-button   id="present-alert" class="boton_google">Inciar sesión con<img src="assets/img/icono_google.png" alt="icono_google" class="google-img"></ion-button>
+  <ion-button   id="present-alert" class="boton_google" shape="round">Inciar sesión con<img src="assets/img/icono_google.png" alt="icono_google" class="google-img" ></ion-button>
   <ion-alert
   trigger="present-alert"
   header="Proximamente...."
@@ -47,6 +47,6 @@
 
   <p class="letras_google">¿No eres miembro?</p>
 <!--BOTON REGISTRARSE-->
-  <ion-button  class="boton_registrarse"   [routerLink]="['/registro']">¡Regístrate!</ion-button>
+  <ion-button  class="boton_registrarse"  shape="round" [routerLink]="['/registro']">¡Regístrate!</ion-button>
 
 <br>
