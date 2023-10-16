@@ -1,116 +1,43 @@
-
-<div class="color_de_fondo">
 <ion-content [fullscreen]="true">
-  <app-barra></app-barra><!--llamar al componente-->
-<div contaonerbody>
+  <app-barra></app-barra>
   <div class="header">
-          <!--barra de secciones-->
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-              <ion-list size="auto"class="tipos">
-                  <ion-select style="color:white;"aria-label="Categorias" interface="popover" placeholder="Todas las listas" class="list">
-                    <ion-select-option class="opt" value="compras">Compras</ion-select-option>
-                    <ion-select-option value="estudios">Estudios</ion-select-option>
-                    <ion-select-option value="trabajo">Trabajo</ion-select-option>
-                    <ion-select-option value="personal">Personal</ion-select-option>
-                  </ion-select>
-              </ion-list>
-            </ion-col>
-            <ion-col>
-              <!--añadir notas -->
-              <ion-fab class="add-note">
-                <ion-fab-button >
-                  <ion-icon [routerLink]="['/note']" name="add"></ion-icon><!--redireccionar a note-->
-                </ion-fab-button>
-              </ion-fab>
-            </ion-col>
-          </ion-row>
-      </ion-grid>
-
-
-  </div>
-    <div class="containercard">
-      <ion-grid>
-        <div class="card">
-        <ion-row>
-          <ion-col>
-            <ion-card class="caard">
-              <ion-card-header>
-                <ion-card-title class="titulo_cards">Titulo Nota</ion-card-title>
-                <ion-row>
-                <ion-col><img class="edit" src="assets/img/edit.png" alt="imagen de editar" [routerLink]="['/note']"></ion-col>  
-                <ion-col> <ion-checkbox class="edit" ></ion-checkbox> </ion-col>
-              </ion-row>
-              </ion-card-header>
-            
-              <ion-card-content class="descripcion_nota">
-                Descripcion de nota.
-              </ion-card-content>
-              </ion-card>
-          </ion-col>
-          <ion-col>
-            <ion-card class="caard">
-            <ion-card-header>
-              <ion-card-title class="titulo_cards">Titulo Nota</ion-card-title>
-              <ion-row>
-              <ion-col><img class="edit" src="assets/img/edit.png" alt="imagen de editar" [routerLink]="['/note']"></ion-col>  
-              <ion-col> <ion-checkbox class="edit"></ion-checkbox> </ion-col>
-            </ion-row>
-            </ion-card-header>
-            <ion-card-content class="descripcion_nota">
-              Descripcion de nota.
-            </ion-card-content>
-            </ion-card>
-          </ion-col>
-        </ion-row>
-      </div>  
-
-
-
-
+    <!--barra de secciones-->
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-list size="auto" class="tipos">
+            <ion-select style="color:white;" aria-label="Categorias" interface="popover" placeholder="Todas las listas" class="list">
+              <ion-select-option class="opt" value="compras">Compras</ion-select-option>
+              <ion-select-option value="estudios">Estudios</ion-select-option>
+              <ion-select-option value="trabajo">Trabajo</ion-select-option>
+              <ion-select-option value="personal">Personal</ion-select-option>
+            </ion-select>
+          </ion-list>
+        </ion-col>
+        <ion-col>
+          <!--añadir notas -->
+          <ion-fab class="add-note">
+            <ion-fab-button >
+              <ion-icon [routerLink]="['/note']" name="add"></ion-icon><!--redireccionar a note-->
+            </ion-fab-button>
+          </ion-fab>
+        </ion-col>
+      </ion-row>
     </ion-grid>
-      <ion-grid>
-        <div class="card">
-        <ion-row>
-          <ion-col>
-            <ion-card class="caard">
-              <ion-card-header>
-                <ion-card-title class="titulo_cards" >Titulo Nota</ion-card-title>
-                <ion-row>
-                <ion-col><img class="edit" src="assets/img/edit.png" alt="imagen de editar" [routerLink]="['/note']"></ion-col>  
-                <ion-col> <ion-checkbox class="edit"></ion-checkbox> </ion-col>
-              </ion-row>
-              </ion-card-header>
-            
-              <ion-card-content class="descripcion_nota">
-                Descripcion de nota.
-              </ion-card-content>
-              </ion-card>
-          </ion-col>
-          <ion-col>
-            <ion-card class="caard">
-            <ion-card-header>
-              <ion-card-title class="titulo_cards">Titulo Nota</ion-card-title>
-              <ion-row>
-              <ion-col><img class="edit" src="assets/img/edit.png" alt="imagen de editar" [routerLink]="['/note']"></ion-col>  
-              <ion-col> <ion-checkbox class="edit"></ion-checkbox> </ion-col>
-            </ion-row>
-            </ion-card-header>
-          
-            <ion-card-content class="descripcion_nota">
-              Descripcion de nota.
-            </ion-card-content>
-            </ion-card>
-          </ion-col>
-        </ion-row>
-    </div>  
-    </ion-grid>
-
-    
   </div>
-</div>   
 
+  <!-- Mostrar notas -->
+  <div *ngIf="notes && notes.length > 0">
+    <ion-list>
+      <ion-item *ngFor="let note of notes">
+        <ion-label>
+          <h2>{{ note.nombreNota }}</h2>
+          <p>{{ note.descripcion }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!-- Mostrar mensaje si no hay notas -->
+  <div *ngIf="!notes || notes.length === 0">No hay notas disponibles.</div>
 </ion-content>
-
-</div>

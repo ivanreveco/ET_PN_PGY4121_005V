@@ -1,3 +1,4 @@
+import { Tiponota } from './../models/note.models';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -38,5 +39,8 @@ export class FirebaseService {
     localStorage.removeItem('user');
   }
   
+  getSubCollection(path:string, subCollectionName:string){
+    return this.db.doc(path).collection(subCollectionName).valueChanges({ idField:'id'})
+  }
   
 }

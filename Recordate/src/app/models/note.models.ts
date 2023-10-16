@@ -1,8 +1,11 @@
-export interface note{
+export interface Note {
+    id: string,
+    nombreNota: string,
+    descripcion: string,
+    tiponota: Tiponota[],
+  }
+  
+  export interface Tiponota {
     id: string;
-    nombreNota:string;
-    descripcion:string;
-    fecha:string;
-    fechaTermino:string;
-    tipoNota:string;
-}
+    name: string;
+  }
