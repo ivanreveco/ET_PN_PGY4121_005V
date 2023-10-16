@@ -1,4 +1,4 @@
-import { Tiponota } from './../models/note.models';
+
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -41,6 +41,13 @@ export class FirebaseService {
   
   getSubCollection(path:string, subCollectionName:string){
     return this.db.doc(path).collection(subCollectionName).valueChanges({ idField:'id'})
+  }
+  set_User<tipo>(data: tipo, enlace : string, id : string) {
+    const ref = this.db.collection<tipo>(enlace);
+    return ref.doc(id).set(data);
+  }
+  createId(){
+    return this.db.createId();
   }
   
 }

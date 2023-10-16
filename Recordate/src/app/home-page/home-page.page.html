@@ -27,17 +27,16 @@
   </div>
 
   <!-- Mostrar notas -->
-  <div *ngIf="notes && notes.length > 0">
+
     <ion-list>
-      <ion-item *ngFor="let note of notes">
+   
         <ion-label>
-          <h2>{{ note.nombreNota }}</h2>
-          <p>{{ note.descripcion }}</p>
+        
         </ion-label>
-      </ion-item>
+
     </ion-list>
-  </div>
+
 
   <!-- Mostrar mensaje si no hay notas -->
-  <div *ngIf="!notes || notes.length === 0">No hay notas disponibles.</div>
+
 </ion-content>

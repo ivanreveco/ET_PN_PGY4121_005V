@@ -1,8 +1,7 @@
-import { Tiponota } from './../models/note.models';
 import { Component, Input, OnInit } from '@angular/core';
 import { Note } from '../models/note.models';
-import { User } from '../models/user.models';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-note',
@@ -11,21 +10,35 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class NotePage implements OnInit {
 @Input() note: Note;
-  user = {} as User
+newNote: Note = {
+  id: '',
+  nombreNota: '',
+  descripcion: '',
+  tiponota: '',
+};
 
   form = new FormGroup({
-    id:new FormControl(''),
     nombreNota:new FormControl('',[Validators.required]),
-    descripcion:new FormControl('',[Validators.required])
+    descripcion:new FormControl('',[Validators.required]),
+    Tiponota:new FormControl('')
    
 
   })
 
   constructor(
-
+    private firebaseSvc:FirebaseService
   ) { }
 
   ngOnInit() {
+  }
+  save(){
+    console.log('Esto se envia a firebase ' ,this.newNote)
+    const data = this.newNote;
+    data.id = this.firebaseSvc.createId();
+    const enlace = 'user';
+    this.firebaseSvc.set_User<Note>(data, enlace, data.id);
+    console.log(data,enlace,'Hola');
+
   }
 
 }

@@ -2,10 +2,7 @@ export interface Note {
     id: string,
     nombreNota: string,
     descripcion: string,
-    tiponota: Tiponota[],
+    tiponota: string,
   }
   
-  export interface Tiponota {
-    id: string;
-    name: string;
-  }
+ 
