@@ -7,8 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { NotePageRoutingModule } from './note-routing.module';
 
 import { NotePage } from './note.page';
-import { SharedModule } from '../../shared/shared.module';
-import { RouterLink } from '@angular/router';
+import { BarraComponent } from '../shared/barra/barra.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -17,7 +17,6 @@ import { RouterLink } from '@angular/router';
     IonicModule,
     NotePageRoutingModule,
     SharedModule,
-    RouterLink
   ],
   declarations: [NotePage]
 })

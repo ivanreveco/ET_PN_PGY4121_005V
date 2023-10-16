@@ -1,12 +1,8 @@
-export interface Note {
+export interface note{
     id: string;
-    nombreNota: string;
-    descripcion: string;
-    tipoNotaId: string;
-    tiponota: tiponota | null;  // Asegúrate de tener el tipo correcto aquí
-  }
-  
-  export interface tiponota {
-    id: string;
-    name: string;
-  }
+    nombreNota:string;
+    descripcion:string;
+    fecha:string;
+    fechaTermino:string;
+    tipoNota:string;
+}
