@@ -1,8 +1,8 @@
-import { Component, OnInit, } from '@angular/core';
-import { User } from 'src/app/models/user.models';
 import { FirebaseService } from 'src/app/services/firebase.service';
+import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user.models';
 import { UtilsService } from 'src/app/services/utils.service';
-import { ModalController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-barra',
@@ -11,28 +11,49 @@ import { ModalController } from '@ionic/angular';
 })
 export class BarraComponent implements OnInit {
 
-  user = {} as User;
+  name: string = '';
+  usercorreo: string = '';
+
+  newUser: User = {
+    uid : '',
+    name: '',
+    lastName:'',
+    password: '',
+    email: '',
+  };
+
+  uid = '';
+
+  constructor(public auth :FirebaseService,private db : UtilsService) {
+
+    this.auth.getAuthState().subscribe( res => {
+      console.log(res);
+                if (res !== null) {
+                   this.uid = res.uid;
+                   this.getUserInfo(this.uid);
+                }
+  });
+
+   }
   
-  constructor(
-    private utilsSvc: UtilsService,
-    private firesSvc: FirebaseService,
-    private modalController: ModalController 
-  ) { }
 
   ngOnInit() {
-    this.getUser();
+
   }
 
-  async singOut() {
-    await this.firesSvc.singOut();
-    this.dismiss();
+  getUserInfo(uid : string){
+       const path = 'Users';
+       this.db.getDoc<User>(path, uid).subscribe( res => {
+              if (res !== undefined) {
+                this.newUser = res;
+              }
+       });
   }
 
-  getUser() {
-    return this.user = this.utilsSvc.getElementInStorage('user');
-  }
 
-  async dismiss() {
-    await this.modalController.dismiss();
-  }
+  
+
+  async salir() {
+    this.auth.singOut();
+ }
 }

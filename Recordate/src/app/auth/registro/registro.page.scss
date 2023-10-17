@@ -56,3 +56,22 @@
 }
   
 
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Horizontal centering */
+  justify-content: center; /* Vertical centering */
+}
+
+/* Optional: Adjust width if needed */
+.formulario ion-item {
+  width: 95%; /* Adjust the width to your preference */
+  max-width: 400px; /* Optional: Set a maximum width */
+  margin-bottom: 10px; /* Optional: Add some margin between items */
+}
+.btn-regis {
+  display: block;
+  margin: 20px auto 0; /* 20px top margin and center horizontally */
+  width: 95%; /* Adjust the width to your preference */
+  max-width: 400px; /* 50% width */
+}

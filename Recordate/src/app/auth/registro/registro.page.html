@@ -1,3 +1,4 @@
+<ion-content>
 <div class="boton_regresa_formulario">
   <!-- Content for boton_regresa_formulario -->
 </div>
@@ -29,14 +30,16 @@
 
   <ion-item>
     <ion-label position="floating" color="light">Contraseña</ion-label>
-    <ion-input [(ngModel)]="newUser.password" type="password"></ion-input>
+    <ion-input [(ngModel)]="newUser.password" [type]="showPassword ? 'text' : 'password'"></ion-input>
+    <ion-icon slot="end" [name]="showPassword ? 'eye-off' : 'eye'" (click)="togglePassword()"></ion-icon>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating" color="light">Confirmar Contraseña</ion-label>
-    <ion-input [(ngModel)]="confirmPassword" type="password"></ion-input>
+    <ion-input [(ngModel)]="confirmPassword"  [type]="showPassword ? 'text' : 'password'"></ion-input>
+    <ion-icon slot="end" [name]="showPassword ? 'eye-off' : 'eye'" (click)="togglePassword()"></ion-icon>
   </ion-item>
-  <ion-button expand="full" (click)="register()">Registrar</ion-button>
+
 </div>
 
 <div class="mensajeError">
@@ -52,3 +55,5 @@
     <ion-label color="danger">{{ mensaje_error3 }}</ion-label>
   </ion-item>
 </div>
+<ion-button class="btn-regis"shape="round" (click)="register()">Registrar</ion-button>
+</ion-content>

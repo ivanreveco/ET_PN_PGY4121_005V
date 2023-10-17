@@ -1,31 +1,35 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons>
-      <ion-button id="open-modal" class="btn" expand="block"><img class="img"src="assets/img/menu.png" alt=""></ion-button>
+      <ion-button id="open-modal" class="btn" expand="block">
+        <img class="img" src="assets/img/menu.png" alt="">
+      </ion-button>
       <ion-searchbar showCancelButton="focus" class="custom" flex="1" minWidth="0"></ion-searchbar>
     </ion-buttons>
-    <ion-content class="ion-padding">
-  
-
-      <ion-modal class="modal"trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
-        <ng-template>
-          <div class="block"><div class="image-container">
-            <img class="user"src="assets/img/user.png" alt="">
-          </div>
-          <div class="containernombre"class="nombre">{{user.name}}</div> 
-          <h3 class="nombre_correo">{{user.email}}</h3>
-
-          <div containeritem>
-            <ion-item><img class="recordatorio"src="assets/img/recordatorio.png" alt=""><ion-button [routerLink]="['/home-page']">Recordatorio</ion-button></ion-item>
-            <ion-item>
-              <img class="out" src="assets/img/out.png" alt="">
-              <ion-button (click)="singOut()" class="cerrar">Cerrar sesión</ion-button>
-            </ion-item>
-            
-          </div>
-          </div>
-        </ng-template>
-      </ion-modal>
-    </ion-content>
   </ion-toolbar>
 </ion-header>
+
+<ion-content class="ion-padding">
+  <ion-modal class="modal" trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+    <ng-template>
+      <div class="block">
+        <div class="image-container">
+          <img class="user" src="assets/img/user.png" alt="">
+        </div>
+        <div class="containernombre">{{newUser.name}}  {{newUser.lastName}}</div>
+        <h3 class="nombre_correo">{{ newUser.email }}</h3>
+
+        <div containeritem>
+          <ion-item>
+            <img class="recordatorio" src="assets/img/recordatorio.png" alt="">
+            <ion-button [routerLink]="['/home-page']">Recordatorio</ion-button>
+          </ion-item>
+          <ion-item>
+            <img class="out" src="assets/img/out.png" alt="">
+            <ion-button (click)="salir()" class="cerrar">Cerrar sesión</ion-button>
+          </ion-item>
+        </div>
+      </div>
+    </ng-template>
+  </ion-modal>
+</ion-content>
