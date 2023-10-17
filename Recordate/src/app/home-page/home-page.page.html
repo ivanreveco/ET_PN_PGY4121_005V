@@ -1,30 +1,35 @@
-<ion-content [fullscreen]="true">
-  <app-barra></app-barra>
-  <div class="header">
-    <!--barra de secciones-->
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-list size="auto" class="tipos">
-            <ion-select style="color:white;" aria-label="Categorias" interface="popover" placeholder="Todas las listas" class="list">
-              <ion-select-option class="opt" value="compras">Compras</ion-select-option>
-              <ion-select-option value="estudios">Estudios</ion-select-option>
-              <ion-select-option value="trabajo">Trabajo</ion-select-option>
-              <ion-select-option value="personal">Personal</ion-select-option>
-            </ion-select>
-          </ion-list>
-        </ion-col>
-        <ion-col>
-          <!--añadir notas -->
-          <ion-fab class="add-note">
-            <ion-fab-button >
-              <ion-icon [routerLink]="['/note']" name="add"></ion-icon><!--redireccionar a note-->
-            </ion-fab-button>
-          </ion-fab>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
+
+<div class="color_de_fondo">
+  <ion-content [fullscreen]="true">
+    <app-barra></app-barra><!--llamar al componente-->
+  <div contaonerbody>
+    <div class="header">
+            <!--barra de secciones-->
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                <ion-list size="auto"class="tipos">
+                    <ion-select style="color:white;"aria-label="Categorias" interface="popover" placeholder="Todas las listas" class="list">
+                      <ion-select-option class="opt" value="compras">Compras</ion-select-option>
+                      <ion-select-option value="estudios">Estudios</ion-select-option>
+                      <ion-select-option value="trabajo">Trabajo</ion-select-option>
+                      <ion-select-option value="personal">Personal</ion-select-option>
+                    </ion-select>
+                </ion-list>
+              </ion-col>
+              <ion-col>
+                <!--añadir notas -->
+                <ion-fab class="add-note">
+                  <ion-fab-button >
+                    <ion-icon [routerLink]="['/note']" name="add"></ion-icon><!--redireccionar a note-->
+                  </ion-fab-button>
+                </ion-fab>
+              </ion-col>
+            </ion-row>
+        </ion-grid>
+  
+  
+    </div>
 
   <!-- Mostrar notas -->
 
@@ -39,4 +44,3 @@
 
   <!-- Mostrar mensaje si no hay notas -->
 
-</ion-content>
