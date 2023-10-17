@@ -1,9 +1,8 @@
-import { FirebaseService } from '../../services/firebase.service';
+import { FirebaseService } from 'src/app/services/firebase.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { UtilsService } from '../../services/utils.service';
+import { NavController, ToastController } from '@ionic/angular';
 import { User } from 'src/app/models/user.models';
-import { customValidators } from 'src/app/util/custom-validators';
+import { UtilsService } from 'src/app/services/utils.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,78 +11,112 @@ import { Router } from '@angular/router';
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage implements OnInit {
-  form = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.minLength(7)]),
-    name: new FormControl('', [Validators.required, Validators.minLength(4)]),
-    lastName: new FormControl('', [Validators.required, Validators.minLength(4)]),
-    confirmPasword: new FormControl(''),
-  });
 
-  errorMessage: string;  // Added error message variable
+  newUser: User = {
+    uid : '',
+    name: '',
+    lastName:'',
+    password: '',
+    email: '',
+  };
 
-  constructor(
-    private firebaseSvc: FirebaseService,
-    private utilsSvc: UtilsService,
-    private router: Router
-  ) {}
+  newFile: any;
+   
+  uid = '';
 
-  ngOnInit() {
-    this.confirmPasswordV();
+  
+  mensaje_error1 : string = 'Contraseñas incorrectas';
+  mensaje_error2 : string = 'Contraseña debe tener almenos 6 caracteres';
+  mensaje_error3 : string = 'Ingrese un correo correcto';
+  mostrarMensajeError1: boolean = false;
+  mostrarMensajeError2: boolean = false;
+  mostrarMensajeError3: boolean = false;
+  confirmPassword: string = ''; // Nuevo campo para confirmar la contraseña
+  
+  constructor(private navCtrl: NavController,
+    private toastController: ToastController,
+    private  UtilsSvc: UtilsService, 
+    public firebaseSvc : FirebaseService,
+    private router: Router) { 
+    
   }
 
-  confirmPasswordV() {
-    this.form.controls.confirmPasword.setValidators([
-      Validators.required,
-      customValidators.machValues(this.form.controls.password),
-    ]);
-    this.form.controls.confirmPasword.updateValueAndValidity();
+  async ngOnInit() {
+    const uid = await this.firebaseSvc.getUid();
+    console.log(uid);
   }
 
-  submit() {
-    if (this.form.valid) {
-      this.utilsSvc.presentLoading({ message: 'Registrando...', duration: 1000 });
-
-      const displayName = `${this.form.value.name} ${this.form.value.lastName}`;
-
-      this.firebaseSvc.SignUp(this.form.value as User).then(
-        async (res) => {
-          // Set the displayName after signing up the user
-          await res.user.updateProfile({
-            displayName: displayName,
-          });
-
-          let user: User = {
-            uid: res.user.uid,
-            name: displayName, // Use displayName set in Firebase
-            email: res.user.email,
-            lastName: this.form.value.lastName,
+  async register() {
+    // Validar que la contraseña tenga al menos 6 caracteres
+    if (this.newUser.password) {
+      // Contraseña cumple con la longitud mínima
+  
+      // Validar que la contraseña y la confirmación coincidan
+      if (this.newUser.password === this.confirmPassword) {
+        // Contraseña y confirmación coinciden, procede con el registro
+        if (this.newUser.email.includes('@')) {
+        // Guarda los datos en el LocalStorage
+        //localStorage.setItem('User', JSON.stringify(this.newUser));
+      
+          const credenciales = {
+              email: this.newUser.email,
+              password: this.newUser.password,
           };
+          const res = await this.firebaseSvc.SignUp(credenciales.email,credenciales.password).catch( err => {
+            console.log( 'error -> ',  err);
+        });
+          const uid = await this.firebaseSvc.getUid();
+          console.log(uid);
+          if (uid) {
+            this.newUser.uid = uid;
+            this.guardarUser();
+           
+          } else {
+            console.log('Error: No se pudo obtener el UID');
+            return; // Evita continuar si no se obtiene el UID
+          }
+     
+    
 
-          this.utilsSvc.setElementeInStorage('user', user);
-          this.utilsSvc.dismissloading();
+        // Redirige a la página de inicio de sesión u otra página según tu flujo de la aplicación
+        this.mostrarMensajeRegistro()
+        this.navCtrl.navigateForward('/home');
+        //const storedUserString = localStorage.getItem('User');
+        //console.log(storedUserString)
 
-          this.errorMessage = ''; // Reset error message on success
-          this.redirectToHomePage();
-          console.log(res);
-        },
-        (error) => {
-          this.utilsSvc.dismissloading();
-          this.utilsSvc.presentToast({
-            message: 'Correo ya existe',
-            duration: 5000,
-            color: 'warning',
-            icon: 'alert-circle-outline',
-          });
-        }
-      );
+      } else {
+        // Correo electrónico no válido, muestra un mensaje de error
+        this.mostrarMensajeError3 = true;
+      }
+      } else {
+        // Las contraseñas no coinciden, muestra un mensaje de error
+        this.mostrarMensajeError1 = true;
+      }
+    } else {
+      // La contraseña no cumple con la longitud mínima
+      this.mostrarMensajeError2 = true;
+      console.log('La contraseña debe tener al menos 6 caracteres.');
+      
+      }
     }
-  }
 
-  private redirectToHomePage() {
-    this.router.navigateByUrl('/home-page');
-    setTimeout(() => {
-      location.reload();
-    }, 100);
+    guardarUser(){
+      const path = 'Users'
+      const name = this.newUser.name;
+      this.UtilsSvc.createDoc(this.newUser, path, this.newUser.uid).then( res => {
+        console.log('guardado con exito');
+    }).catch( error => {
+    });
+      
+    }
+
+    async mostrarMensajeRegistro() {
+      const toast = await this.toastController.create({
+        message: 'Cuenta creada correctamente',
+        duration: 1000, // Duración en milisegundos
+        position: 'bottom' // Posición en la que aparecerá el mensaje
+      });
+      toast.present();
+    }
+ 
   }
-}

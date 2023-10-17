@@ -1,77 +1,57 @@
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-     
-    </ion-toolbar>
-  </ion-header>
+<div class="boton_regresa_formulario">
+  <!-- Content for boton_regresa_formulario -->
+</div>
+
+<div class="logo-container">
+  <img src="assets/img/recor.jpg" alt="RecorDate" class="recordate-img">
+</div>
+
+<div class="titulo_login">
+  <strong>¡Regístrate!</strong>
+</div>
+
+<div class="formulario">
   
-  <div class="boton_regresa_formulario">
-    <ion-icon name="arrow-undo-outline" [routerLink]="['/home', { reload: true }]" style="font-size: 40px;"></ion-icon>
-  </div>
+  <ion-item>
+    <ion-label position="floating" color="light">correo</ion-label>
+    <ion-input [(ngModel)]="newUser.email" type="text"></ion-input>
+  </ion-item>
 
-<!--LOGO DE LA APP-->
-  <div class="logo-container">
-    <img src="assets/img/recor.jpg" alt="RecorDate" class="recordate-img">
-  </div>
+  <ion-item>
+    <ion-label position="floating" color="light">Nombre de usuario</ion-label>
+    <ion-input [(ngModel)]="newUser.name" type="text"></ion-input>
+  </ion-item>
 
-<!--TITULO DE REGISTRO-->
-  <div class="titulo_login">
-    <strong>¡Regístrate!</strong>
-  </div>
+  <ion-item>
+    <ion-label position="floating" color="light">apellido</ion-label>
+    <ion-input [(ngModel)]="newUser.lastName" type="text"></ion-input>
+  </ion-item>
 
+  <ion-item>
+    <ion-label position="floating" color="light">Contraseña</ion-label>
+    <ion-input [(ngModel)]="newUser.password" type="password"></ion-input>
+  </ion-item>
 
-<!--LABEL DE LOS INPUTS DE REGISTROS-->
-  <div class="label_registro">
-   <form (keyup.enter)="submit()"  (ngSubmit)="submit()" >
-    <app-custom-input [control]="form.controls.email" type="email" label="Correo" icon="mail-outline"></app-custom-input>
-    <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.dirty">
-      <div *ngIf="form.controls.email.errors?.['required']">Ingresa tu correo</div>
-      <div *ngIf="form.controls.email.errors?.['email']">Ingresa un email válido</div>
-    </div>
+  <ion-item>
+    <ion-label position="floating" color="light">Confirmar Contraseña</ion-label>
+    <ion-input [(ngModel)]="confirmPassword" type="password"></ion-input>
+  </ion-item>
 
-    <app-custom-input [control]="form.controls.name" type="text" label="Nombre" icon="person-outline"></app-custom-input>
-    <div class="validators" *ngIf="form.controls.name.errors && form.controls.name.dirty">
-      <div *ngIf="form.controls.name.errors?.['required']">Ingresa tu nombre</div>
-      <div *ngIf="form.controls.name.errors?.['minLength']">Minimo de 4 caracteres</div>
-    </div>
+ 
 
-    <app-custom-input [control]="form.controls.lastName" type="text" label="Apellido" icon="person-outline"></app-custom-input>
-    <div class="validators" *ngIf="form.controls.lastName.errors && form.controls.lastName.dirty">
-      <div *ngIf="form.controls.lastName.errors?.['required']">Ingresa tu apellido</div>
-      <div *ngIf="form.controls.lastName.errors?.['minLength']">Mínimo de 4 caracteres</div>
-    </div>
+  <ion-button expand="full" (click)="register()">Registrar</ion-button>
+</div>
 
-    <app-custom-input [control]="form.controls.password" type="password" label="Contraseña" icon="lock-closed-outline"></app-custom-input>
-    <div class="validators" *ngIf="form.controls.password.errors && form.controls.password.dirty">
-      <div *ngIf="form.controls.password.errors?.['required']">Ingresa tu contraseña</div>
-      <div *ngIf="form.controls.password.errors?.['minLength']">La contraseña debe contener mínimo 8 caracteres</div>
-    </div>
+<div class="mensajeError">
+  <ion-item *ngIf="mostrarMensajeError1">
+    <ion-label color="danger">{{ mensaje_error1 }}</ion-label>
+  </ion-item>
 
-    <app-custom-input [control]="form.controls.confirmPasword" type="password" label=" Confirmar Contraseña" icon="lock-closed-outline"></app-custom-input>
-    <div class="validators" *ngIf="form.controls.confirmPasword.errors && form.controls.password.dirty">
-      <div *ngIf="form.controls.confirmPasword.errors?.['required']">Ingresa tu contraseña</div>
-      <div *ngIf="form.controls.confirmPasword.errors?.['notMach']">Las contraseñas no coinciden</div>
-    </div>
+  <ion-item *ngIf="mostrarMensajeError2">
+    <ion-label color="danger">{{ mensaje_error2 }}</ion-label>
+  </ion-item>
 
-    <ion-checkbox class="chechbox_registro" ></ion-checkbox>Acepto los términos y condiciones
-
-    
-  <ion-button class="boton_registro" type="submit"(click)="submit()"  [disabled]="form.invalid" >
-    Registrarte
-  </ion-button>
-  <br>
-  
-  </form>
-  </div>
-<!--BOTON DE REGISTRARSE-->
-
-
-
-
-
-</ion-content>
-
-
-
-
-
+  <ion-item *ngIf="mostrarMensajeError3">
+    <ion-label color="danger">{{ mensaje_error3 }}</ion-label>
+  </ion-item>
+</div>

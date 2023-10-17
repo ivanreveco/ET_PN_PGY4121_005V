@@ -15,14 +15,16 @@ export class FirebaseService {
     private auth: AngularFireAuth,
     private db: AngularFirestore,
     private utilsSvc: UtilsService,
-  ) { }
+  ) { 
+    this.getUid();
+  }
 
   login(user: User) {
     return this.auth.signInWithEmailAndPassword(user.email, user.password);
   }
 
-  SignUp(user: User) {
-    return this.auth.createUserWithEmailAndPassword(user.email, user.password);
+  async SignUp(email: string, password: string): Promise<any> {
+    return this.auth.createUserWithEmailAndPassword(email, password);
   }
 
   updateUser(user: any) {
@@ -32,6 +34,14 @@ export class FirebaseService {
   getAuthState(){
     return this.auth.authState
   }
+  async getUid() {
+    const user = await this.auth.currentUser;
+    if (user === null) {
+      return null;
+    } else {
+       return user.uid;
+    }
+ }
 
   async singOut(){
     await this.auth.signOut();
