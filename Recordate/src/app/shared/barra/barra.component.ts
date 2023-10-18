@@ -2,6 +2,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.models';
 import { UtilsService } from 'src/app/services/utils.service';
+import { Note } from 'src/app/models/note.models';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class BarraComponent implements OnInit {
     password: '',
     email: '',
   };
+ 
 
   uid = '';
 
