@@ -5,12 +5,7 @@
       <ion-row>
         <ion-col>
           <ion-list size="auto" class="tipos">
-            <ion-select style="color: white !important;" aria-label="Categorias" interface="popover" placeholder="Todas las listas" class="list">
-              <ion-select-option value="compras">Compras</ion-select-option>
-              <ion-select-option value="estudios">Estudios</ion-select-option>
-              <ion-select-option value="trabajo">Trabajo</ion-select-option>
-              <ion-select-option value="personal">Personal</ion-select-option>
-            </ion-select>
+            <!-- ... (resto del código) ... -->
           </ion-list>
         </ion-col>
         <ion-col>
@@ -32,19 +27,17 @@
           <ion-card class="note-card">
             <ion-card-header>
               <ion-card-title class="titulo_cards">
-                <h1>{{ note.nombreNota }}</h1>
+                <ion-row class="ion-justify-content-between"> <!-- Alinea contenido entre -->
+                  <ion-col> <h1 class="titulo">{{ note.nombreNota }}</h1></ion-col> 
+                  <ion-col> <img class="edit" src="assets/img/edit.png" alt="imagen de editar" [routerLink]="['/note']"></ion-col> 
+                </ion-row>
               </ion-card-title>
-              <ion-row>
-                <ion-col><img class="edit" src="assets/img/edit.png" alt="imagen de editar" [routerLink]="['/note']"></ion-col>
-                <ion-col> <ion-checkbox class="edit"></ion-checkbox> </ion-col>
-              </ion-row>
             </ion-card-header>
 
             <ion-card-content class="descripcion_nota">
               <p>{{ note.descripcion }}</p>
-              <p>{{ note.tiponota }}</p>
-              
             </ion-card-content>
+            <h5 class="categoria">categoria: {{ note.tiponota }}</h5>
           </ion-card>
         </ion-item>
       </ion-col>
