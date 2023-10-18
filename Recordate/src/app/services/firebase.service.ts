@@ -5,6 +5,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { getAuth, updateProfile } from 'firebase/auth';
 import { User } from '../models/user.models';
 import { UtilsService } from './utils.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -59,6 +60,12 @@ export class FirebaseService {
   createId(){
     return this.db.createId();
   }
-  
+  getCollection<T>(path: string): Observable<T[]> {
+    return this.db.collection<T>(path).valueChanges();
+  }
+  getNotes(uid: string) {
+    const path = `users/${uid}/notes`;
+    return this.db.collection(path).valueChanges({ idField: 'id' });
+  }
   
 }
