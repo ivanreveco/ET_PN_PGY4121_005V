@@ -48,13 +48,16 @@
 }
 
 .boton_incio{
-  width: 50%;
+  display: flex;
+  width: 130%;
   align-content: center;
-  margin-left:25%;
-  margin-right:25%;
-  height: 20px;
-
+  justify-content: center;
+  margin-left:-18%;
+  height: 29px;
+  font-size: 16px;
 }
+
+
 
 .logo-container {
   display: flex;
@@ -86,8 +89,10 @@
 }
 .boton_google{
   margin-left: 22%;
-  margin-right: 20%;
+  margin-right: 3%;
   width: 55%;
+  align-items: center;
+  display: block;
 }
 
 .google-img{
@@ -98,15 +103,18 @@
   padding: 4px;
   border-radius: 40px;
   
+  
 }
 .boton_registrarse{
   display: flex;
   justify-content: center;
   align-items: center;
   width: 55%;
-  font-size: 19px;
-  margin: 0 auto; 
+  font-size: 16px;
+  margin-left: 22%;
   color: white;
+
+
 
 }
 
@@ -130,4 +138,10 @@
   --text-color: white;
 }
 
+.login{
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Horizontal centering */
+  justify-content: center; /* Vertical centering */
+}
 
