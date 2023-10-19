@@ -49,11 +49,8 @@
 
 .boton_incio{
   display: flex;
-  width: 130%;
   align-content: center;
   justify-content: center;
-  margin-left:-18%;
-  height: 29px;
   font-size: 16px;
 }
 
@@ -69,9 +66,33 @@
 .recordate-img {
   width: auto;
   height: auto;
-  
 
 }
+
+ion-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+}
+
+.boton_regresa_formulario {
+  font-size: 40px;
+  color: rgb(255, 255, 255);
+}
+
+.logo-container {
+  margin-left: 16px; /* Ajusta el margen según tus necesidades */
+}
+
+.titulo_login {
+  margin-top: 16px; /* Ajusta el margen según tus necesidades */
+}
+
 
 .vertical-line {
   width: 325px; 
@@ -93,6 +114,7 @@
   width: 55%;
   align-items: center;
   display: block;
+  height: 50px;
 }
 
 .google-img{
@@ -113,9 +135,6 @@
   font-size: 16px;
   margin-left: 22%;
   color: white;
-
-
-
 }
 
 
@@ -134,14 +153,11 @@
   text-align: center;
 }
 
+
+
+
 :host {
   --text-color: white;
 }
 
-.login{
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Horizontal centering */
-  justify-content: center; /* Vertical centering */
-}
 

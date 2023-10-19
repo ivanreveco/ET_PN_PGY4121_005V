@@ -2,8 +2,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.models';
 import { UtilsService } from 'src/app/services/utils.service';
-import { Note } from 'src/app/models/note.models';
-
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-barra',
@@ -22,40 +21,39 @@ export class BarraComponent implements OnInit {
     password: '',
     email: '',
   };
- 
 
   uid = '';
 
-  constructor(public auth :FirebaseService,private db : UtilsService) {
-
+  constructor(
+    public auth : FirebaseService,
+    private db : UtilsService,
+    private modalController: ModalController
+  ) {
     this.auth.getAuthState().subscribe( res => {
-      console.log(res);
-                if (res !== null) {
-                   this.uid = res.uid;
-                   this.getUserInfo(this.uid);
-                }
-  });
-
-   }
-  
-
-  ngOnInit() {
-
+      if (res !== null) {
+        this.uid = res.uid;
+        this.getUserInfo(this.uid);
+      }
+    });
   }
 
-  getUserInfo(uid : string){
-       const path = 'Users';
-       this.db.getDoc<User>(path, uid).subscribe( res => {
-              if (res !== undefined) {
-                this.newUser = res;
-              }
-       });
+  ngOnInit() {}
+
+  getUserInfo(uid : string) {
+    const path = 'Users';
+    this.db.getDoc<User>(path, uid).subscribe( res => {
+      if (res !== undefined) {
+        this.newUser = res;
+      }
+    });
   }
-
-
-  
 
   async salir() {
-    this.auth.singOut();
- }
+    await this.auth.singOut();
+    this.dismiss();
+  }
+
+  async dismiss() {
+    await this.modalController.dismiss();
+  }
 }
