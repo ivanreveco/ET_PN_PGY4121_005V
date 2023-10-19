@@ -68,4 +68,9 @@ export class FirebaseService {
     return this.db.collection(path).valueChanges({ idField: 'id' });
   }
   
+  deleteDoc(path: string, docId: string): Promise<void> {
+    const documentRef = this.db.doc(`${path}/${docId}`);
+    return documentRef.delete();
+  }
+  
 }

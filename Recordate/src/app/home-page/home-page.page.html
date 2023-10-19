@@ -11,8 +11,8 @@
         <ion-col>
           <!-- Añadir notas -->
           <ion-fab class="add-note">
-            <ion-fab-button>
-              <ion-icon [routerLink]="['/note']" name="add"></ion-icon><!-- Redireccionar a note -->
+            <ion-fab-button [routerLink]="['/note']">
+              <ion-icon name="add"></ion-icon><!-- Redireccionar a note -->
             </ion-fab-button>
           </ion-fab>
         </ion-col>
@@ -27,9 +27,18 @@
           <ion-card class="note-card">
             <ion-card-header>
               <ion-card-title class="titulo_cards">
-                <ion-row class="ion-justify-content-between"> <!-- Alinea contenido entre -->
-                  <ion-col> <h1 class="titulo">{{ note.nombreNota }}</h1></ion-col> 
-                  <ion-col> <img class="edit" src="assets/img/edit.png" alt="imagen de editar" [routerLink]="['/note']"></ion-col> 
+                <ion-row class="ion-justify-content-between">
+                  <ion-col>
+                    <h1 class="titulo">{{ note.nombreNota }}</h1>
+                  </ion-col>
+                  <ion-col>
+                    <ion-button fill="clear" class="delete-button" (click)="deleteNote(note.id)">
+                      <ion-icon name="trash" slot="icon-only"></ion-icon>
+                    </ion-button>
+                  </ion-col>
+                  <ion-col>
+                    <img class="edit" src="assets/img/edit.png" alt="imagen de editar">
+                  </ion-col>
                 </ion-row>
               </ion-card-title>
             </ion-card-header>
@@ -37,7 +46,7 @@
             <ion-card-content class="descripcion_nota">
               <p>{{ note.descripcion }}</p>
             </ion-card-content>
-            <h5 class="categoria">categoria: {{ note.tiponota }}</h5>
+            <h5 class="categoria">Categoría: {{ note.tiponota }}</h5>
           </ion-card>
         </ion-item>
       </ion-col>
