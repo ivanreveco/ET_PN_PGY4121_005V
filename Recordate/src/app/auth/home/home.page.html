@@ -1,0 +1,59 @@
+
+<ion-content [fullscreen]="true" >
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"></ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="logo-container">
+    <img src="assets/img/recor.jpg" alt="RecorDate" class="recordate-img">
+  </div>
+
+  <div class="titulo_login">
+    <strong>¡Bienvenido!</strong> <br>
+  </div> 
+  <!--LABEL DE INCIO-->
+  <div class="login">
+
+    
+  <form (keyup.enter)="submit()" (ngSubmit)="submit()" class="form-loggin">
+    <app-custom-input [control]="form.controls.email" type="email" label="Ingresa tu correo"  icon="mail-outline" shape="round"></app-custom-input>
+    <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.dirty">
+      <div *ngIf="form.controls.email.errors?.['required']">Ingresa un email válido</div>
+      <div *ngIf="form.controls.email.errors?.['email']">Ingresa un email válido</div>
+    </div>
+  
+    <app-custom-input [control]="form.controls.password" type="password" label="Ingresa tu contraseña" icon="lock-closed-outline" ></app-custom-input>
+    <div class="validators" *ngIf="form.controls.password.errors && form.controls.password.dirty">
+      <div *ngIf="form.controls.password.errors?.['required']">Ingresa una contraseña válida</div>
+    </div>
+    <br>
+    <hr>
+  
+    <ion-button class="boton_incio" (click)="submit()" type="submit" [disabled]="form.invalid" shape="round">
+      iniciar sesión
+    </ion-button>
+  </form>
+  <br>
+  <hr>
+
+</div>
+    <!--Botones-class="boton_incio"-->
+
+  
+  <p class="letras_google">O usar tu cuenta google</p>
+<!--BOTON GOOGLE CON LOGO-->
+  <ion-button   id="present-alert" class="boton_google" shape="round">Inciar sesión con<img src="assets/img/icono_google.png" alt="icono_google" class="google-img" ></ion-button>
+  <ion-alert
+  trigger="present-alert"
+  header="Proximamente...."
+  
+></ion-alert>
+<!--LINEA VERTICAL-->
+  <div class="vertical-line"></div>
+
+  <p class="letras_google">¿No eres miembro?</p>
+<!--BOTON REGISTRARSE-->
+  <ion-button  class="boton_registrarse"  shape="round" [routerLink]="['/registro']">¡Regístrate!</ion-button>
+
+<br>

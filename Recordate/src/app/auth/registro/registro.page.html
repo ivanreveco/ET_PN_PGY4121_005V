@@ -1,0 +1,67 @@
+<ion-content>
+<div class="boton_regresa_formulario">
+  <div class="boton_regresa_formulario">
+    <ion-icon name="arrow-undo-outline" [routerLink]="['/home', { reload: true }]" style="font-size: 40px;"></ion-icon>
+</div>
+</div>
+
+<div class="logo-container">
+  <img src="assets/img/recor.jpg" alt="RecorDate" class="recordate-img">
+</div>
+
+<div class="titulo_login">
+  <strong>¡Regístrate!</strong>
+
+</div>
+<hr>
+<hr>
+<hr>
+<div class="formulario">
+  
+  <ion-item>
+    <ion-label  position="floating" color="light" >Correo</ion-label>
+    <ion-input [(ngModel)]="newUser.email" type="text" ></ion-input>
+    <ion-icon slot="start" name="mail-outline"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating" color="light">Nombre</ion-label>
+    <ion-input [(ngModel)]="newUser.name" type="text"></ion-input>
+    <ion-icon slot="start" name="person-outline"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating" color="light">Apellido</ion-label>
+    <ion-input [(ngModel)]="newUser.lastName" type="text"></ion-input>
+    <ion-icon slot="start" name="person-outline"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating" color="light">Contraseña</ion-label>
+    <ion-input [(ngModel)]="newUser.password" [type]="showPassword ? 'text' : 'password'"></ion-input>
+    <ion-icon slot="end" [name]="showPassword ? 'eye-off' : 'eye'" (click)="togglePassword()"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating" color="light">Confirmar Contraseña</ion-label>
+    <ion-input [(ngModel)]="confirmPassword"  [type]="showPassword ? 'text' : 'password'"></ion-input>
+
+  </ion-item>
+
+</div>
+
+<div class="mensajeError">
+  <ion-item *ngIf="mostrarMensajeError1">
+    <ion-label color="danger">{{ mensaje_error1 }}</ion-label>
+  </ion-item>
+
+  <ion-item *ngIf="mostrarMensajeError2">
+    <ion-label color="danger">{{ mensaje_error2 }}</ion-label>
+  </ion-item>
+
+  <ion-item *ngIf="mostrarMensajeError3">
+    <ion-label color="danger">{{ mensaje_error3 }}</ion-label>
+  </ion-item>
+</div>
+<ion-button class="btn-regis"shape="round" (click)="register()">Registrar</ion-button>
+</ion-content>

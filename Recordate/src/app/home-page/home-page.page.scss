@@ -57,3 +57,31 @@
     
 }
 
+.note-item {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding: 10px;
+}
+
+.note-card {
+    width: 100%; /* Ajusta el ancho de la tarjeta según sea necesario */
+    max-width: 300px; /* Ancho máximo deseado para cada tarjeta */
+
+}
+.opt{
+    color: white;
+}
+
+.white-text {
+    color: white !important;
+
+}
+.categoria{
+    font-size: 15px;
+    margin-left: 10px;
+}
+.titulo{
+    font-size: 25px;
+
+}

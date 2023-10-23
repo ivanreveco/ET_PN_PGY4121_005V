@@ -1,60 +1,59 @@
-import { Component, OnInit , OnDestroy} from '@angular/core';
-import { AlertController, NavController , ModalController} from '@ionic/angular';
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user.models';
+import { UtilsService } from 'src/app/services/utils.service';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-barra',
   templateUrl: './barra.component.html',
   styleUrls: ['./barra.component.scss'],
 })
-export class BarraComponent implements OnInit , OnDestroy{
-  nombre: string = '';
-  apellidos: string = '';
-  email : string = '';
+export class BarraComponent implements OnInit {
+
+  name: string = '';
+  usercorreo: string = '';
+
+  newUser: User = {
+    uid : '',
+    name: '',
+    lastName:'',
+    password: '',
+    email: '',
+  };
+
+  uid = '';
 
   constructor(
-    private alertCtrl: AlertController,//controlar alerts
-    private navCtrl: NavController,//controlar los links
-    private modalController : ModalController
-  ) {}
-
-  ngOnInit() {
-    //obtener dato nombre de user
-    const userString = localStorage.getItem('user');
-    if (userString !== null) {
-      const user = JSON.parse(userString);
-      this.nombre = user.nombre;
-      this.apellidos = user.apellidos;
-      this.email = user.email;
-    }
-  }
-
-  async presentAlert() {
-    const alert = await this.alertCtrl.create({
-      header: 'Cerrar sesión',
-      message: '¿Está seguro de querer cerrar la sesión?',
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancelar');
-          },
-        },
-        {
-          text: 'OK',
-          handler: () => {
-            console.log('Cerrar sesión');
-            localStorage.removeItem('user'); // Verifica que esto esté funcionando
-            this.navCtrl.navigateForward('/home'); // Redirecciona a la página de inicio de sesión
-          },
-        },
-      ],
+    public auth : FirebaseService,
+    private db : UtilsService,
+    private modalController: ModalController
+  ) {
+    this.auth.getAuthState().subscribe( res => {
+      if (res !== null) {
+        this.uid = res.uid;
+        this.getUserInfo(this.uid);
+      }
     });
-    await alert.present();
   }
 
-  ngOnDestroy() {
-    this.modalController.dismiss();
-    
+  ngOnInit() {}
+
+  getUserInfo(uid : string) {
+    const path = 'Users';
+    this.db.getDoc<User>(path, uid).subscribe( res => {
+      if (res !== undefined) {
+        this.newUser = res;
+      }
+    });
+  }
+
+  async salir() {
+    await this.auth.singOut();
+    this.dismiss();
+  }
+
+  async dismiss() {
+    await this.modalController.dismiss();
   }
 }

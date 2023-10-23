@@ -1,0 +1,77 @@
+.titulo_login{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+.label_registro{
+    margin: 50px;
+    color: white;
+    font-size: 15px;
+}
+.chechbox_registro{
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.boton_registro{
+    width: 50%;
+    align-content: center;
+    margin-left:25%;
+    margin-right:25%;
+    height: 20px;
+    margin-bottom: 25%;
+}
+.recordate-img {
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+  
+  }
+:host {
+    --text-color: white;
+  }
+
+.boton_regresa_formulario{
+  margin-top: 20px;
+  font-size: 50px;
+  margin-left: 30px;
+  color: rgb(255, 255, 255);
+
+}
+.validators{
+  color:red;
+  font-size: 14px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+  
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Horizontal centering */
+  justify-content: center; /* Vertical centering */
+}
+
+/* Optional: Adjust width if needed */
+.formulario ion-item {
+  width: 95%; /* Adjust the width to your preference */
+  max-width: 400px; /* Optional: Set a maximum width */
+  margin-bottom: 10px; /* Optional: Add some margin between items */
+}
+.btn-regis {
+  display: block;
+  margin: 20px auto 0; /* 20px top margin and center horizontally */
+  width: 95%; /* Adjust the width to your preference */
+  max-width: 400px; /* 50% width */
+}

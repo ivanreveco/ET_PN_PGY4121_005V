@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import { AuthGuard } from './guards/auth.guard';
+
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./auth/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
@@ -13,16 +15,20 @@ const routes: Routes = [
   },
   {
     path: 'home-page',
-    loadChildren: () => import('./home-page/home-page.module').then( m => m.HomePagePageModule)
-  },  {
+    loadChildren: () => import('./home-page/home-page.module').then( m => m.HomePagePageModule),canActivate:[AuthGuard]
+  },
+  {
     path: 'note',
-    loadChildren: () => import('./note/note.module').then( m => m.NotePageModule)
+    loadChildren: () => import('./note/note.module').then( m => m.NotePageModule),canActivate:[AuthGuard]
   },
   {
     path: 'registro',
-    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+    loadChildren: () => import('./auth/registro/registro.module').then( m => m.RegistroPageModule)
   },
-
+  
+ 
+  
+  
 ];
 
 @NgModule({
