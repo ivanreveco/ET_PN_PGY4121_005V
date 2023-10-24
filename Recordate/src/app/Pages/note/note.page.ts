@@ -1,8 +1,8 @@
 import { ToastController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
-import { Note } from '../models/note.models';
-import { FirebaseService } from '../services/firebase.service';
-import { UtilsService } from '../services/utils.service';
+import { Note } from '../../models/note.models';
+import { FirebaseService } from '../../services/firebase.service';
+import { UtilsService } from '../../services/utils.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,7 +18,7 @@ export class NotePage implements OnInit {
     tiponota: 'personal', // Default to "personal"
     descripcion: '',
   };
-
+  
   userId: string;
 
   constructor(

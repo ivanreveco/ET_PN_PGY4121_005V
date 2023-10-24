@@ -20,10 +20,14 @@
 
 }
 .add-note{
-    position: relative;
-    float: right;
-    margin-left: 30px;
     color: white;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    overflow: hidden;
+    margin-bottom: 25px;
+    margin-right: 25px;
 
 }
 .add-note{

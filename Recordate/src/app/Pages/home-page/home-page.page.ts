@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from '../services/firebase.service';
-import { UtilsService } from '../services/utils.service';
-import { Note } from '../models/note.models';
+import { FirebaseService } from '../../services/firebase.service';
+import { UtilsService } from '../../services/utils.service';
+import { Note } from '../../models/note.models';
 
 @Component({
   selector: 'app-home-page',
