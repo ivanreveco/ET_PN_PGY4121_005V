@@ -17,6 +17,7 @@ export class NotePage implements OnInit {
     nombreNota: '',
     tiponota: 'personal', // Default to "personal"
     descripcion: '',
+    fecha: new Date(),
   };
   
   userId: string;
@@ -61,5 +62,19 @@ export class NotePage implements OnInit {
   redirect() {
     this.router.navigate(['/home-page']);
   }
+  setFechaNota(dia: number, mes: number, anio: number) {
+    
+    this.newNote.fecha = new Date(anio, mes - 1, dia); 
+  }
+  diaNota: number; 
+  mesNota: number;
+  anioNota: number;
 
+ 
+
+  guardarNota() {
+    
+    this.setFechaNota(this.diaNota, this.mesNota, this.anioNota);
+   
+  }
 }

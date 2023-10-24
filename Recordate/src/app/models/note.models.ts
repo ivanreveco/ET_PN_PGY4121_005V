@@ -3,6 +3,7 @@ export interface Note {
     nombreNota: string,
     descripcion: string,
     tiponota: string,
+    fecha: Date;
   }
   
  
