@@ -1,10 +1,4 @@
-body{
-    color:white;
-    position: absolute;
-}
-ion-title{
-    color:black;
-}
+
 .user{
     width: 50px;
     display: flex;
@@ -29,8 +23,8 @@ ion-title{
 }
 ion-searchbar{
     width: 100%;
-    --placeholder-color:white;
-    color:white;
+    --placeholder-color:#000000;
+    color:#000000;
     display: flex;
     --cancel-button-color: red;
    
@@ -65,7 +59,7 @@ ion-button{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 18px;}
 .nombre{
     margin-top: 10px ;

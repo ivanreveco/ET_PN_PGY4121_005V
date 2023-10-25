@@ -19,31 +19,31 @@
 <div class="formulario">
   
   <ion-item>
-    <ion-label  position="floating" color="light" >Correo</ion-label>
+    <ion-label  position="floating"  >Correo</ion-label>
     <ion-input [(ngModel)]="newUser.email" type="text" ></ion-input>
     <ion-icon slot="start" name="mail-outline"></ion-icon>
   </ion-item>
 
   <ion-item>
-    <ion-label position="floating" color="light">Nombre</ion-label>
+    <ion-label position="floating" >Nombre</ion-label>
     <ion-input [(ngModel)]="newUser.name" type="text"></ion-input>
     <ion-icon slot="start" name="person-outline"></ion-icon>
   </ion-item>
 
   <ion-item>
-    <ion-label position="floating" color="light">Apellido</ion-label>
+    <ion-label position="floating" >Apellido</ion-label>
     <ion-input [(ngModel)]="newUser.lastName" type="text"></ion-input>
     <ion-icon slot="start" name="person-outline"></ion-icon>
   </ion-item>
 
   <ion-item>
-    <ion-label position="floating" color="light">Contraseña</ion-label>
+    <ion-label position="floating" >Contraseña</ion-label>
     <ion-input [(ngModel)]="newUser.password" [type]="showPassword ? 'text' : 'password'"></ion-input>
     <ion-icon slot="end" [name]="showPassword ? 'eye-off' : 'eye'" (click)="togglePassword()"></ion-icon>
   </ion-item>
 
   <ion-item>
-    <ion-label position="floating" color="light">Confirmar Contraseña</ion-label>
+    <ion-label position="floating" >Confirmar Contraseña</ion-label>
     <ion-input [(ngModel)]="confirmPassword"  [type]="showPassword ? 'text' : 'password'"></ion-input>
 
   </ion-item>

@@ -1,7 +1,7 @@
-*{
-  color: white;
-}
 
+*{
+  color: black;
+}
 #container {
   text-align: center;
 
@@ -16,6 +16,10 @@
   font-size: 20px;
   line-height: 26px;
 
+}
+.recordate-img{
+  width: 200px;
+  height: 90px;
 }
 
 #container p {
@@ -42,7 +46,6 @@
 
 .label_inicio{
   margin: 50px;
-  color: white;
   font-size: 15px;
 
 }
@@ -71,11 +74,7 @@
   margin-top: 20px;
 }
 
-.recordate-img {
-  width: auto;
-  height: auto;
 
-}
 
 ion-content {
   display: flex;
@@ -123,6 +122,7 @@ ion-content {
   align-items: center;
   display: block;
   height: 50px;
+  color: white;
 }
 
 .google-img{
