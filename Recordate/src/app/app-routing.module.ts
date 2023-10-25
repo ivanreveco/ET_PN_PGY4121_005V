@@ -25,6 +25,15 @@ const routes: Routes = [
     path: 'registro',
     loadChildren: () => import('./auth/registro/registro.module').then( m => m.RegistroPageModule)
   },
+  {
+    path: 'not-found',
+    loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'not-found',
+  }
+
   
  
   

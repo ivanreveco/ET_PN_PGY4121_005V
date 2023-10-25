@@ -1,3 +1,7 @@
+*{
+  color: white;
+}
+
 #container {
   text-align: center;
 
@@ -49,9 +53,13 @@
 
 .boton_incio{
   display: flex;
-  align-content: center;
   justify-content: center;
+  align-items: center;
+  width: 55%;
   font-size: 16px;
+  margin-left: 22%;
+  color: white;
+  
 }
 
 
