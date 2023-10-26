@@ -16,7 +16,6 @@
 
 .label_registro{
     margin: 50px;
-    color: white;
     font-size: 15px;
 }
 .chechbox_registro{
@@ -32,20 +31,16 @@
     margin-bottom: 25%;
 }
 .recordate-img {
-    width: auto;
-    height: auto;
-    border-radius: 10px;
+  width: 200px;
+  height: 100px;
   
   }
-:host {
-    --text-color: white;
-  }
+
 
 .boton_regresa_formulario{
-  margin-top: 20px;
+  margin-top: 4px;
   font-size: 50px;
-  margin-left: 30px;
-  color: rgb(255, 255, 255);
+  margin-left: 6px;
 
 }
 .validators{

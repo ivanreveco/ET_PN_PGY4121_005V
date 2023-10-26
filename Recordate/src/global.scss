@@ -27,28 +27,19 @@
 
 
 
-
-app-barra{
-    background-color: transparent;
-}
 ion-app{
-    --ion-background-color: #35424a;
+    --ion-background-color:  #e1eaed;
 }
+ion-toolbar{
+    --ion-background-color: #7dc6de;
+  }
+  ion-modal{
+    
+    --ion-background-color: #7dc6de;
 
-/* app-custom-input.component.scss */
+  }
 
-:host {
-    --text-color: white;
-  }
-  
-  ion-label {
-    color: var(--text-color) !important;
-  }
-  
-  ion-input {
-    color: var(--text-color) !important;
-  }
-  
+
     
   
   /* Asegúrate de que estos estilos tengan prioridad */

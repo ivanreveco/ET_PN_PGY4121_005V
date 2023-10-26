@@ -1,7 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <app-barra></app-barra>
-  </ion-toolbar>
+  
 </ion-header>
 
 <ion-button (click)="crearIdNote()" class="AceptaBoton">
@@ -37,7 +35,7 @@
           <ion-col size="9">
           <ion-item>
             <ion-icon slot="start" name="clipboard-outline"></ion-icon>
-            <ion-label position="floating" color="light">Nombre Nota</ion-label>
+            <ion-label position="floating" >Nombre Nota</ion-label>
             <ion-input [(ngModel)]="newNote.nombreNota" type="text"></ion-input>
            
           </ion-item>
@@ -56,7 +54,7 @@
     </ion-list>
   </div>
   
-  <ion-label position="floating" color="light">Descripción</ion-label>
+  <ion-label position="floating" >Descripción</ion-label>
   <ion-textarea [(ngModel)]="newNote.descripcion" style="white-space: pre-line; word-wrap: break-word;height: 100%;"></ion-textarea>
   <ion-icon slot="start" name="book-outline"></ion-icon>
 </ion-content>

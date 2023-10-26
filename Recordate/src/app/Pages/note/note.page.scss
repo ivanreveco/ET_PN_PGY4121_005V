@@ -1,5 +1,4 @@
 .AceptaBoton{
-    color: white;
     position: fixed;
     bottom: 0;
     right: 0;
@@ -11,7 +10,6 @@
 }
 .title-pag{
     display: flex;
-    color:white;
     justify-content: center;
     align-items: center;
 }
@@ -26,7 +24,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
 }
 .containerFecha{
     display: flex;
@@ -38,5 +35,5 @@
     height: auto;
 }
 *{
-    color:white;
+    color:rgb(0, 0, 0);
 }

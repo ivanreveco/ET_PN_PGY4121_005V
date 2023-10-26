@@ -1,5 +1,5 @@
 body{
-    color:white;
+    color:black;
     position: absolute;
 }
 ion-title{
@@ -29,8 +29,8 @@ ion-title{
 }
 ion-searchbar{
     width: 100%;
-    --placeholder-color:white;
-    color:white;
+    --placeholder-color:rgb(0, 0, 0);
+    color:rgb(0, 0, 0);
     display: flex;
     --cancel-button-color: red;
    
