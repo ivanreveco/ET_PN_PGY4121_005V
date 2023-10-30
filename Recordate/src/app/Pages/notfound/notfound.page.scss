@@ -1,6 +1,6 @@
 .pagina-no-encontrada{
     font-size: 50px;
-    margin-top: 270px;
+    margin-top: 15%;
 }
 .not-found-message{
     font-size: 25px;
@@ -12,4 +12,13 @@
   align-items: center;
   display: block;
   height: 50px;
+}
+
+.miniface{
+    animation: infinite 3s shake;
+}    
+@keyframes shake {
+    100%{transform: rotate(30deg);}
+    50%{transform: rotate(-0.130turn);}
+    
 }

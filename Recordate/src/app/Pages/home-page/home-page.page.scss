@@ -44,11 +44,18 @@
 
 
 .titulo_cards{
-    font-size: 25px;
-    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
 
 }
 
+.titulo_cards ion-button {
+    margin-left: 10px;
+  }
 
 .caard{
     background-color:darkgrey;
@@ -56,10 +63,7 @@
 
 }
 
-.descripcion_nota{
-    color: white;
-    
-}
+
 
 .note-item {
     display: flex;
@@ -87,5 +91,14 @@
 }
 .titulo{
     font-size: 25px;
+    margin-top: 10px;
 
+}
+.delete{
+    float: right;
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 10px;;
+    width: 100px;
 }

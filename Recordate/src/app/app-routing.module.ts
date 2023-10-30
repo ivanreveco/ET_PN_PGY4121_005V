@@ -27,7 +27,7 @@ const routes: Routes = [
   },
   {
     path: 'notfound',
-    loadChildren: () => import('./notfound/notfound.module').then( m => m.NotfoundPageModule)
+    loadChildren: () => import('./Pages/notfound/notfound.module').then( m => m.NotfoundPageModule)
   },
   {
     path: '**',

@@ -1,11 +1,11 @@
 <ion-content [fullscreen]="true">
   <div>
     <ion-header>
-    
-        <app-barra></app-barra>
-      
+
+      <app-barra></app-barra>
+
     </ion-header>
-   
+
     <ion-grid>
       <ion-row>
         <ion-col>
@@ -27,32 +27,19 @@
   <ion-grid>
     <ion-row>
       <ion-col size="12" size-md="5" *ngFor="let note of userNotes">
-        <ion-item class="note-item">
           <ion-card class="note-card">
             <ion-card-header>
+              <h5>{{note.fecha}}</h5>
+              <ion-button fill="clear" class="delete"(click)="deleteNote(note.id)">
+                <ion-icon name="trash" ></ion-icon>
+              </ion-button>
               <ion-card-title class="titulo_cards">
-                <ion-row class="ion-justify-content-between">
-                  <ion-col>
-                    <h1 class="titulo">{{ note.nombreNota }}</h1>
-                  </ion-col>
-                  <ion-col>
-                    <ion-button fill="clear" class="delete-button" (click)="deleteNote(note.id)">
-                      <ion-icon name="trash" slot="icon-only"></ion-icon>
-                    </ion-button>
-                  </ion-col>
-                  <ion-col>
-                    <img class="edit" src="assets/img/edit.png" alt="imagen de editar">
-                  </ion-col>
-                </ion-row>
+                  
+                <h1 class="titulo">{{ note.nombreNota }}</h1>
               </ion-card-title>
             </ion-card-header>
-
-            <ion-card-content class="descripcion_nota">
-              <p>{{ note.descripcion }}</p>
-            </ion-card-content>
             <h5 class="categoria">Categoría: {{ note.tiponota }}</h5>
           </ion-card>
-        </ion-item>
       </ion-col>
     </ion-row>
   </ion-grid>
