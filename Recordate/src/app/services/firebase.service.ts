@@ -1,4 +1,5 @@
 
+
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -6,6 +7,7 @@ import { getAuth, updateProfile } from 'firebase/auth';
 import { User } from '../models/user.models';
 import { UtilsService } from './utils.service';
 import { Observable } from 'rxjs';
+import { Note } from '../models/note.models';
 
 @Injectable({
   providedIn: 'root'
@@ -72,5 +74,7 @@ export class FirebaseService {
     const documentRef = this.db.doc(`${path}/${docId}`);
     return documentRef.delete();
   }
-  
+  getNoteById(noteId: string): Observable<Note> {
+    return this.db.doc<Note>(`Notes/${noteId}`).valueChanges();
+  }
 }

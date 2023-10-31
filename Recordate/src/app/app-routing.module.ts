@@ -29,11 +29,14 @@ const routes: Routes = [
     path: 'notfound',
     loadChildren: () => import('./Pages/notfound/notfound.module').then( m => m.NotfoundPageModule)
   },
+  
   {
     path: '**',
     redirectTo: 'notfound',
     pathMatch: 'full'
   },
+  
+
 
   
  

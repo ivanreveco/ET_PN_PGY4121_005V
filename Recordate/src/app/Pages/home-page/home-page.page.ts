@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../services/firebase.service';
 import { UtilsService } from '../../services/utils.service';
 import { Note } from '../../models/note.models';
+import { Router } from '@angular/router';
+import { SharingdataService } from 'src/app/services/sharingdata.service';
+import { EditNoteComponent } from 'src/app/shared/edit-note/edit-note.component';
+import { ModalController } from '@ionic/angular';
+ // Importa el servicio de intercambio de datos
 
 @Component({
   selector: 'app-home-page',
@@ -14,7 +19,9 @@ export class HomePagePage implements OnInit {
 
   constructor(
     private firebaseSvc: FirebaseService,
-    private utilSvc: UtilsService
+    private utilSvc: UtilsService,
+    private modalController: ModalController,
+    private dataSharingService: SharingdataService // Inyecta el servicio de intercambio de datos
   ) {}
 
   async ngOnInit() {
@@ -26,10 +33,7 @@ export class HomePagePage implements OnInit {
       .getSubCollection('Users/' + this.userId, subCollectionName)
       .subscribe(
         (notes: Note[]) => {
-          // Mostrar en la consola los datos de la subcolección "Notes"
           console.log('Notas del usuario:', notes);
-
-          // Asignar las notas al arreglo para mostrar en el HTML
           this.userNotes = notes;
         },
         (error) => {
@@ -37,18 +41,21 @@ export class HomePagePage implements OnInit {
         }
       );
   }
+
   deleteNote(noteId: string) {
-    const noteIndex = this.userNotes.findIndex(note => note.id === noteId);
-    if (noteIndex !== -1) {
-      const path = `Users/${this.userId}/Notes`;
-      this.firebaseSvc.deleteDoc(path, noteId).then(() => {
-        console.log('Nota eliminada con éxito de la base de datos.');
-        this.userNotes.splice(noteIndex, 1);
-      }).catch(error => {
-        console.error('Error al eliminar la nota de la base de datos:', error);
+    // ...
+  }
+
+  async editNote(noteId: string) {
+    const selectedNote = this.userNotes.find((note) => note.id === noteId);
+    if (selectedNote) {
+      this.dataSharingService.setSelectedNote(selectedNote);
+      const modal = await this.modalController.create({
+        component: EditNoteComponent,
       });
+      await modal.present();
     } else {
-      console.error('No se encontró la nota a eliminar.');
+      console.error('No se encontró la nota a editar.');
     }
   }
 }

@@ -15,11 +15,11 @@ export class NotePage implements OnInit {
   newNote: Note = {
     id: '',
     nombreNota: '',
-    tiponota: 'personal', // Default to "personal"
+    tiponota: 'personal',
     descripcion: '',
-    fecha: new Date(),
+    fecha: null, // Inicializamos la fecha como null
   };
-  
+ 
   userId: string;
 
   constructor(
@@ -33,7 +33,7 @@ export class NotePage implements OnInit {
     this.userId = await this.firebaseSvc.getUid();
     console.log(this.userId);
   }
-
+ 
   crearIdNote() {
     if (!this.newNote.id) {
       this.newNote.id = this.utilSvc.createId(); // Assign an ID if not defined
@@ -62,19 +62,28 @@ export class NotePage implements OnInit {
   redirect() {
     this.router.navigate(['/home-page']);
   }
+
   setFechaNota(dia: number, mes: number, anio: number) {
-    
     this.newNote.fecha = new Date(anio, mes - 1, dia); 
   }
+
   diaNota: number; 
   mesNota: number;
   anioNota: number;
 
- 
+  isValidNote() {
+    return this.newNote.nombreNota.trim() !== '' && this.newNote.descripcion.trim() !== '';
+  }
 
   guardarNota() {
-    
     this.setFechaNota(this.diaNota, this.mesNota, this.anioNota);
-   
+    
+    this.newNote = {
+      id: '',
+      nombreNota: '',
+      tiponota: 'personal',
+      descripcion: '',
+      fecha: null, // Reinicializamos la fecha como null
+    };
   }
 }
