@@ -9,7 +9,6 @@ import { UtilsService } from 'src/app/services/utils.service';
   templateUrl: './barra.component.html',
   styleUrls: ['./barra.component.scss'],
 })
-
 export class BarraComponent implements OnInit {
   newUser: User = {
     uid: '',
@@ -20,14 +19,13 @@ export class BarraComponent implements OnInit {
   };
 
   uid = '';
-  
+  capturedImage: string | null = null; // Variable para almacenar la URL de la imagen capturada
 
   constructor(
     public auth: FirebaseService,
     private db: UtilsService, // Asegúrate de tener este servicio correctamente inyectado
     private modalController: ModalController
-) {
-
+  ) {
     this.auth.getAuthState().subscribe(res => {
       if (res !== null) {
         this.uid = res.uid;
@@ -35,16 +33,16 @@ export class BarraComponent implements OnInit {
       }
     });
   }
+
   async TakeImage() {
     try {
-        const photo = await this.db.takePicture('Imagen del boludo');
-        const dataUrl = photo.dataUrl; // Aquí asumimos que la URL está en la propiedad dataUrl del resultado de la foto
-        // Aquí puedes realizar acciones con la URL de la imagen capturada
+      const photo = await this.db.takePicture('Imagen del boludo');
+      this.capturedImage = photo.dataUrl; // Asigna la URL de la imagen capturada a la variable
+      // Aquí puedes realizar otras acciones con la URL de la imagen capturada si es necesario
     } catch (error) {
-        // Maneja cualquier error que pueda ocurrir al capturar la imagen
-        console.error('Error al tomar la foto:', error);
+      console.error('Error al tomar la foto:', error);
     }
-}
+  }
 
   ngOnInit() {}
 
@@ -65,6 +63,4 @@ export class BarraComponent implements OnInit {
   async dismiss() {
     await this.modalController.dismiss();
   }
-
-  
 }

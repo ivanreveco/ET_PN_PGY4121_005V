@@ -11,8 +11,8 @@
         <ng-template>
           <div class="block">
             <div class="image-container">
-              <img class="user" src="assets/img/user.png" alt="">
-            </div>
+              <img *ngIf="capturedImage" [src]="capturedImage" class="img-user" alt="Imagen capturada">
+          </div>
             <div class="containernombre">{{ newUser.name }} {{ newUser.lastName }}</div>
             <h3 class="nombre_correo">{{ newUser.email }}</h3>
             <ion-button (click)="TakeImage()">sacá la foto</ion-button>
