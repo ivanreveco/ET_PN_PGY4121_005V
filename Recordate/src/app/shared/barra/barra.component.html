@@ -15,8 +15,9 @@
             </div>
             <div class="containernombre">{{ newUser.name }} {{ newUser.lastName }}</div>
             <h3 class="nombre_correo">{{ newUser.email }}</h3>
+            <ion-button (click)="TakeImage()">sacá la foto</ion-button>
     
-            <div containeritem>
+            <div class="">
               <ion-item>
                 <img class="recordatorio" src="assets/img/recordatorio.png" alt="">
                 <ion-button [routerLink]="['/home-page']">Recordatorio</ion-button>

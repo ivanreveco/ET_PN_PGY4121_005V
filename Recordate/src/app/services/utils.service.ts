@@ -1,14 +1,20 @@
 import { Injectable } from '@angular/core';
 import { LoadingController, LoadingOptions, ToastController, ToastOptions } from '@ionic/angular';
-import { Router } from '@angular/router';
+
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Camera, CameraResultType, CameraSource} from '@capacitor/camera';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilsService {
   private errorMessageShown: boolean = false;
+
+
+
+ 
 
   constructor(private loadingController: LoadingController, private router: Router, private toastController: ToastController,
    private auth:AngularFireAuth,
@@ -61,5 +67,18 @@ getDoc<tipo>(path: string, id: string) {
 createId(){
   return this.db.createId();
 }
+
+async takePicture(promptLabelHeader: string) {
+  return await Camera.getPhoto({
+      quality: 90,
+      allowEditing: true,
+      resultType: CameraResultType.DataUrl,
+      source: CameraSource.Prompt,
+      promptLabelHeader,
+      promptLabelPhoto: "Selecciona una imagen",
+      promptLabelPicture: "¡Toma la foto!"
+  });
+}
+
 
 }

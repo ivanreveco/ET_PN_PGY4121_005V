@@ -19,6 +19,7 @@ ion-title{
   }
 .recordatorio{
     width: 25px;
+    background-color: #7dc6de;
 }
 .menu{
     width: 50px;
@@ -61,6 +62,7 @@ ion-button{
     align-items: center;}
 .out{
     width: 25px;
+    background-color: #7dc6de;
 }
 .containernombre{
     display: flex;
@@ -88,4 +90,10 @@ ion-button{
     align-items: center;
     color: rgb(0, 0, 0);
     font-size: 20px;
+}
+
+.color_barra{
+    
+    background-color: #7dc6de;
+
 }
