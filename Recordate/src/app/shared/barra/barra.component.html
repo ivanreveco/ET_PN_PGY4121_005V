@@ -1,12 +1,12 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar >
     <ion-buttons>
       <ion-button id="open-modal" class="btn" expand="block">
         <img class="img" src="assets/img/menu.png" alt="">
       </ion-button>
       <ion-searchbar showCancelButton="focus" label="Buscar"></ion-searchbar>
     </ion-buttons>
-    <ion-content class="ion-padding">
+    <ion-content class="ion-padding" style="margin-top: -40px;">
       <ion-modal class="modal" trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
         <ng-template>
           <div class="block">
@@ -15,15 +15,12 @@
           </div>
             <div class="containernombre">{{ newUser.name }} {{ newUser.lastName }}</div>
             <h3 class="nombre_correo">{{ newUser.email }}</h3>
-            <ion-button (click)="TakeImage()">sacá la foto</ion-button>
-    
-            <div class="">
-              <ion-item>
+            <ion-button class="tomar_foto"(click)="TakeImage()">sacá la foto</ion-button>
+            <div>
+              <ion-item >
                 <img class="recordatorio" src="assets/img/recordatorio.png" alt="">
                 <ion-button [routerLink]="['/home-page']">Recordatorio</ion-button>
-              </ion-item>
-              <ion-item>
-                <img class="out" src="assets/img/out.png" alt="">
+                <img style="width: 25px; margin-left: 75px;" src="assets/img/out.png" alt="">
                 <ion-button (click)="salir()" class="cerrar">Cerrar sesión</ion-button>
               </ion-item>
             </div>
