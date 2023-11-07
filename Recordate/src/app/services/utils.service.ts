@@ -76,7 +76,7 @@ async takePicture(promptLabelHeader: string) {
       source: CameraSource.Prompt,
       promptLabelHeader,
       promptLabelPhoto: "Selecciona una imagen",
-      promptLabelPicture: "¡Toma la foto!"
+      promptLabelPicture: "¡Toma la foto!",
   });
 }
 

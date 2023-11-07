@@ -23,26 +23,42 @@ export class BarraComponent implements OnInit {
 
   constructor(
     public auth: FirebaseService,
-    private db: UtilsService, // Asegúrate de tener este servicio correctamente inyectado
+    private db: UtilsService,
     private modalController: ModalController
   ) {
     this.auth.getAuthState().subscribe(res => {
       if (res !== null) {
         this.uid = res.uid;
         this.getUserInfo(this.uid);
+        this.loadImageFromLocalStorage(this.uid); // Cargar imagen desde el localStorage específico del usuario al iniciar
       }
     });
   }
 
   async TakeImage() {
     try {
-      const photo = await this.db.takePicture('Imagen del boludo');
+      const photo = await this.db.takePicture('Selecciona una imagen o sacar una foto');
       this.capturedImage = photo.dataUrl; // Asigna la URL de la imagen capturada a la variable
-      // Aquí puedes realizar otras acciones con la URL de la imagen capturada si es necesario
+      localStorage.setItem(`capturedImage_${this.uid}`, this.capturedImage); // Guardar en el localStorage del usuario
+      // Otras acciones con la URL de la imagen capturada si es necesario
     } catch (error) {
       console.error('Error al tomar la foto:', error);
     }
   }
+
+  loadImageFromLocalStorage(uid: string) {
+    const savedImage = localStorage.getItem(`capturedImage_${uid}`);
+    if (savedImage) {
+      this.capturedImage = savedImage; // Cargar la imagen desde el localStorage específico del usuario
+    }
+  }
+
+  changeImage() {
+    if (this.capturedImage) {
+      this.TakeImage(); // Si hay una imagen existente, se llama a la función para cambiar la imagen al hacer clic en ella
+    }
+  }
+  
 
   ngOnInit() {}
 
