@@ -1,3 +1,26 @@
-<p>
-  edit-note works!
-</p>
+<ion-item>
+  <ion-label position="stacked">Nombre de la Nota</ion-label>
+  <ion-input [value]="selectedNote.nombreNota" (ionChange)="selectedNote.nombreNota = $event.detail.value" placeholder="Nombre de la Nota"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="stacked">Descripción</ion-label>
+  <ion-textarea [value]="selectedNote.descripcion" (ionChange)="selectedNote.descripcion = $event.detail.value" placeholder="Descripción de la Nota"></ion-textarea>
+</ion-item>
+
+<ion-item>
+  <ion-label position="stacked">Tipo de Nota</ion-label>
+  <ion-select [value]="selectedNote.tiponota" (ionChange)="selectedNote.tiponota = $event.detail.value">
+    <ion-select-option value="personal">Personal</ion-select-option>
+    <ion-select-option value="trabajo">Trabajo</ion-select-option>
+    <ion-select-option value="estudio">Estudio</ion-select-option>
+    <!-- Agrega más opciones según tus necesidades -->
+  </ion-select>
+</ion-item>
+
+<ion-item>
+  <ion-label position="stacked">Fecha de la Nota</ion-label>
+  <ion-input [value]="selectedNote.fecha"  type="date"></ion-input>
+</ion-item>
+
+
