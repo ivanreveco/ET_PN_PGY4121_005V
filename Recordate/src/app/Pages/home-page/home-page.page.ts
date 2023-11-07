@@ -42,23 +42,10 @@ export class HomePagePage implements OnInit {
       );
   }
 
-  deleteNote(noteId: string) {
-    const noteIndex = this.userNotes.findIndex(note => note.id === noteId);
-    if (noteIndex !== -1) {
-      const path = `Users/${this.userId}/Notes`;
-      this.firebaseSvc.deleteDoc(path, noteId).then(() => {
-        console.log('Nota eliminada con éxito de la base de datos.');
-        this.userNotes.splice(noteIndex, 1);
-      }).catch(error => {
-        console.error('Error al eliminar la nota de la base de datos:', error);
-      });
-    } else {
-      console.error('No se encontró la nota a eliminar.');
-    }
+ 
   
 
-  }
-
+  
   async editNote(noteId: string) {
     const selectedNote = this.userNotes.find((note) => note.id === noteId);
     if (selectedNote) {

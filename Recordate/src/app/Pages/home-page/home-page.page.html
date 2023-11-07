@@ -26,14 +26,11 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col size="12" size-md="5" *ngFor="let note of userNotes">
+      <ion-col size="12" size-md="5" *ngFor="let note of userNotes"(click)="editNote(note.id)">
           <ion-card class="note-card">
             <ion-card-header>
               <h5>{{note.fecha}}</h5>
-              <ion-button fill="clear" class="delete"(click)="deleteNote(note.id)">
-                <ion-icon name="trash" ></ion-icon>
-                
-              </ion-button>
+              
               <ion-card-title class="titulo_cards">
                   
                 <h1 class="titulo">{{ note.nombreNota }}</h1>
