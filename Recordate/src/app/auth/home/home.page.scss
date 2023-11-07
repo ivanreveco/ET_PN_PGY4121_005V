@@ -58,6 +58,7 @@
   display: block;
   height: 50px;
   color: white;
+  --ion-color-primary: linear-gradient(#6d9fa3,#466d74);
 }
 
 
@@ -123,6 +124,8 @@ ion-content {
   display: block;
   height: 50px;
   color: white;
+  --ion-color-primary: linear-gradient(#6d9fa3,#466d74);
+
 }
 
 .google-img{
@@ -143,6 +146,7 @@ ion-content {
   font-size: 16px;
   margin-left: 22%;
   color: white;
+  --ion-color-primary: linear-gradient(#466d74,#384d52);
 }
 
 
@@ -161,8 +165,5 @@ ion-content {
   text-align: center;
 }
 
-app-custom-label label {
-  background-color: white;
-}
 
 
