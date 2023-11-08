@@ -1,9 +1,11 @@
+import { Note } from './../../models/note.models';
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { SharingdataService } from 'src/app/services/sharingdata.service';
-import { Note } from 'src/app/models/note.models';
+
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-edit-note',
@@ -18,12 +20,14 @@ export class EditNoteComponent implements OnInit {
     private modalController: ModalController,
     private dataSharingService: SharingdataService,
     private firebaseSvc: FirebaseService, // Asumo que el servicio se llama FirebaseService
-    private afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth,
+    private utilsSvc:UtilsService
   ) {}
 
   ngOnInit() {
     this.dataSharingService.selectedNote$.subscribe((note) => {
       this.selectedNote = note;
+      console.log('Tipo de Nota:', this.selectedNote.tiponota);
     });
 
     // Obtiene el usuario autenticado actual
@@ -61,4 +65,45 @@ export class EditNoteComponent implements OnInit {
       console.error('No se encontró la nota a eliminar.');
     }
   }
+  getDefaultTipoNota(): string | null {
+    if (this.selectedNote) {
+      // Verifica que selectedNote.tiponota sea igual a una de las opciones
+      if (["personal", "trabajo", "estudio"].includes(this.selectedNote.tiponota)) {
+        return this.selectedNote.tiponota;
+      }
+    }
+    return null; // Valor predeterminado si no coincide con ninguna opción
+  }
+  async updateTask() {
+    if (this.selectedNote && this.userId) {
+      const path = `Users/${this.userId}/Notes/${this.selectedNote.id}`;
+
+      
+      delete this.selectedNote.id;
+
+      try {
+        await this.firebaseSvc.updateDocument(path, this.selectedNote);
+
+        
+        this.utilsSvc.presentToast({
+          message: 'Tarea actualizada exitosamente',
+          color: 'success',
+          icon: 'checkmark-circle-outline',
+          duration: 1500,
+        });
+
+       
+      } catch (error) {
+        this.utilsSvc.presentToast({
+          message: error,
+          color: 'warning',
+          icon: 'alert-circle-outline',
+          duration: 5000,
+        });
+      }
+    } else {
+      console.error('No se encontró la nota o el userId.');
+    }
+  }
 }
+

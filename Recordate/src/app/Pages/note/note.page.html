@@ -15,19 +15,6 @@
   <br><br>
 
   <div class="formulario">
-    <ion-grid>
-      <ion-row>
-        <ion-item >
-          <ion-select [(ngModel)]="newNote.tiponota" required>
-            <ion-select-option value="personal">Personal</ion-select-option>
-            <ion-select-option value="compras">Compras</ion-select-option>
-            <ion-select-option value="estudios">Estudios</ion-select-option>
-            <ion-select-option value="trabajo">Trabajo</ion-select-option>
-          </ion-select>
-          <ion-icon slot="start" name="list-outline"></ion-icon>
-        </ion-item>
-      </ion-row>
-    </ion-grid>
     <ion-list>
       <ion-grid >
         <ion-row>
@@ -51,6 +38,15 @@
       
       
     </ion-list>
+    <ion-item >
+      <ion-select [(ngModel)]="newNote.tiponota" required>
+        <ion-select-option value="personal">Personal</ion-select-option>
+        <ion-select-option value="compras">Compras</ion-select-option>
+        <ion-select-option value="estudios">Estudios</ion-select-option>
+        <ion-select-option value="trabajo">Trabajo</ion-select-option>
+      </ion-select>
+      <ion-icon slot="start" name="list-outline"></ion-icon>
+    </ion-item>
   </div>
   
   <ion-label position="floating" >Descripción</ion-label>

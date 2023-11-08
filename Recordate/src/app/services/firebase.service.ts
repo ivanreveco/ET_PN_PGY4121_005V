@@ -77,4 +77,7 @@ export class FirebaseService {
   getNoteById(noteId: string): Observable<Note> {
     return this.db.doc<Note>(`Notes/${noteId}`).valueChanges();
   }
+  updateDocument(path: string, object: any) {
+    return this.db.doc(path).update(object);
+  }
 }
