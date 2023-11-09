@@ -92,6 +92,8 @@ export class EditNoteComponent implements OnInit {
           duration: 1500,
         });
 
+        this.cerrarModal() 
+          
        
       } catch (error) {
         this.utilsSvc.presentToast({
