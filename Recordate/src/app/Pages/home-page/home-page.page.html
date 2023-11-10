@@ -15,7 +15,9 @@
         <ion-col>
           <!-- Añadir notas -->
           <ion-fab class="add-note">
-            <ion-fab-button [routerLink]="['/note']">
+            <ion-fab-button [routerLink]="['/note', {reload:true}]">
+
+              
               <ion-icon name="add"></ion-icon><!-- Redireccionar a note -->
             </ion-fab-button>
           </ion-fab>

@@ -1,37 +1,67 @@
 <ion-header>
-  <ion-button  (click)="updateTask()">
-    <ion-icon name="checkmark-outline"></ion-icon>
-  </ion-button>
-  <ion-button fill="clear" class="delete"(click)="eliminarNota()">
-    <ion-icon name="trash" ></ion-icon>
-    
-  </ion-button>
 
-</ion-header>
-<ion-item>
-  <ion-label position="stacked">Nombre de la Nota</ion-label>
-  <ion-input [value]="selectedNote.nombreNota" (ionChange)="selectedNote.nombreNota = $event.detail.value" placeholder="Nombre de la Nota"></ion-input>
-</ion-item>
+<div class="update">
+  <!--boton de actualizar-->
+    <ion-button (click)="updateTask()">
+      <ion-icon name="checkmark"></ion-icon>
+    </ion-button>
+  </div>
 
-<ion-item>
+  <div class="delete">
+    <!--boton eliminar-->
+    <ion-button (click)="eliminarNota()">
+      <ion-icon name="trash"></ion-icon>
+    </ion-button>
+  </div>
+  
+  
+  
+
+</ion-header>  
+<ion-content>
+
+
+<!--NOMBRE DE LA NOTA-->
+<div class="nombre_nota">
+  <ion-label >Nombre de la Nota</ion-label>
+<ion-input
+[value]="selectedNote.nombreNota" (ionChange)="selectedNote.nombreNota = $event.detail.value" placeholder="Nombre de la Nota" class="input">
+</ion-input>
+</div>
+
+
+
+<!--DESCRIPCION DE LA NOTA-->
+
+<div class="descrip_nota">
   <ion-label position="stacked">Descripción</ion-label>
-  <ion-textarea [value]="selectedNote.descripcion" (ionChange)="selectedNote.descripcion = $event.detail.value" placeholder="Descripción de la Nota"></ion-textarea>
-</ion-item>
+<ion-textarea 
+[value]="selectedNote.descripcion" (ionChange)="selectedNote.descripcion = $event.detail.value" placeholder="Descripción de la Nota">
+</ion-textarea>
+</div>
 
-<ion-item>
-  <ion-label position="stacked">Tipo de Nota</ion-label>
+
+
+<!--TIPO DE NOTA-->
+
+<div class="tipo_nota">
+  <ion-label position="stacked" >Tipo de Nota</ion-label>
   <ion-select [value]="selectedNote.tiponota" (ionChange)="selectedNote.tiponota = $event.detail.value">
-    <ion-select-option value="personal">Personal</ion-select-option>
-    <ion-select-option value="compras">Compras</ion-select-option>
-    <ion-select-option value="estudios">Estudios</ion-select-option>
-    <ion-select-option value="trabajo">Trabajo</ion-select-option>
-    <!-- Agrega más opciones según tus necesidades -->
+      <ion-select-option value="personal">Personal</ion-select-option>
+      <ion-select-option value="compras">Compras</ion-select-option>
+      <ion-select-option value="estudios">Estudios</ion-select-option>
+      <ion-select-option value="trabajo">Trabajo</ion-select-option>
   </ion-select>
-</ion-item>
+</div>
 
-<ion-item>
+
+
+<!--FECHA DE LA NOTA-->
+<div class="fecha_nota">
   <ion-label position="stacked">Fecha de la Nota</ion-label>
   <ion-input [value]="selectedNote.fecha"  type="date"></ion-input>
-</ion-item>
+</div>
+</ion-content>
+
 
 

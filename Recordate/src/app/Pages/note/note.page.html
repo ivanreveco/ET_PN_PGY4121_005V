@@ -6,22 +6,18 @@
   <ion-icon name="checkmark-outline"></ion-icon>
 </ion-button>
 <ion-content [fullscreen]="true">
- 
-  <div class="container-text">
-    <ion-title class="title-pag">
-      <p class="title-pag">Recordatorios</p>
-    </ion-title>
-  </div>
-  <br><br>
+<div class="formulario">
 
-  <div class="formulario">
+  <div class="boton_regresa_formulario">
+    <ion-icon name="arrow-undo-outline" [routerLink]="['/home-page', { reload: true }]" style="font-size: 40px;"></ion-icon>
+</div>
     <ion-list>
       <ion-grid >
         <ion-row>
           <ion-col size="9">
           <ion-item>
-            <ion-icon slot="start" name="clipboard-outline"></ion-icon>
-            <ion-label position="floating" >Nombre Nota</ion-label>
+           
+            <ion-label position="floating" > <ion-icon slot="start" name="clipboard-outline" class="icon_ion"></ion-icon>Nombre Nota</ion-label>
             <ion-input [(ngModel)]="newNote.nombreNota" type="text" required></ion-input>
            
           </ion-item>
@@ -48,8 +44,8 @@
       <ion-icon slot="start" name="list-outline"></ion-icon>
     </ion-item>
   </div>
-  
-  <ion-label position="floating" >Descripción</ion-label>
-  <ion-textarea [(ngModel)]="newNote.descripcion" style="white-space: pre-line; word-wrap: break-word;height: 100%;"required></ion-textarea>
-  <ion-icon slot="start" name="book-outline"></ion-icon>
+  <ion-textarea [(ngModel)]="newNote.descripcion" style="white-space: pre-line; word-wrap: break-word; height: 100%; font-size: 20px;"required></ion-textarea>
+  <ion-icon slot="start" name="book-outline" style="background-color: white;"></ion-icon>
 </ion-content>
+
+

@@ -37,3 +37,14 @@
 *{
     color:rgb(0, 0, 0);
 }
+
+ion-textarea {
+    --padding-start: 20px;
+    --padding-end: 20px;
+    overflow-y: 20px;
+  }
+
+.icon_ion{
+    margin-right: 15px;
+    font-size: 30px;
+}

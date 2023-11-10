@@ -86,4 +86,5 @@ export class NotePage implements OnInit {
       fecha: null, // Reinicializamos la fecha como null
     };
   }
+  
 }

@@ -20,6 +20,7 @@ ion-title{
 .recordatorio{
     width: 25px;
     background-color: #7dc6de;
+    margin-right: 15px;
 }
 .menu{
     width: 50px;
@@ -46,14 +47,15 @@ ion-searchbar{
   }
   
   ion-modal {
-    --height: 50%;
+    --height: 375px;
     
   }
 .img{
     width: 50px;
     background: transparent;
 }
-.btn{width: 50px;}
+.btn{
+    width: 50px;}
 ion-button{
     background-color: transparent;
 }
@@ -89,7 +91,19 @@ ion-button{
     color: rgb(0, 0, 0);
     font-size: 20px;
 }
-
+.boton_barra {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px; 
+  }
+  .boton_barr{
+    position: absolute;
+    left: 23.5%;
+    width: 200px;
+    top: 70%;
+  }
 .color_barra{
     
     background-color: #7dc6de;
@@ -103,25 +117,34 @@ ion-button{
 
 }
 .tomar_foto{
-    max-width: 150px;
-    margin-left: 110px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.out{
-    
-    width: 25px;
-    
-}
-
-.boton_barra{
     width: 200px;
-    height: 40px;
-    margin-left: 50px;
-    margin-right: 50px;
-    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 23.5%;
+    --ion-color-primary: linear-gradient(#6d9fa3,#466d74);
+
+
+
+}
+.icon_out{
+    margin-right: 15px;
 }
 
+
+.boton_logo_recordatorio{
+    margin-left: 120px;
+    margin-bottom: 5px;
+
+
+}
+
+.boton_logo_cerrar{
+    margin-left: 120px;
+    width: 25px;
+
+}
+ion-modal{
+    
+    --ion-background-color: linear-gradient( #6d9fa3, #466d74,#384d52);
+    }
+  

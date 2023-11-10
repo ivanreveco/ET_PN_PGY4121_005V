@@ -90,10 +90,10 @@ export class EditNoteComponent implements OnInit {
           color: 'success',
           icon: 'checkmark-circle-outline',
           duration: 1500,
+          
         });
 
-        this.cerrarModal() 
-          
+        this.cerrarModal();
        
       } catch (error) {
         this.utilsSvc.presentToast({
