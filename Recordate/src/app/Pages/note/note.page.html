@@ -1,10 +1,14 @@
 <ion-header [translucent]="true">
   
 </ion-header>
+<ion-fab class="add-note">
+  <ion-fab-button (click)="crearIdNote()" class="AceptaBoton"[disabled]="!isValidNote()" >
 
-<ion-button (click)="crearIdNote()" class="AceptaBoton"[disabled]="!isValidNote()">
-  <ion-icon name="checkmark-outline"></ion-icon>
-</ion-button>
+    
+    <ion-icon name="checkmark">></ion-icon><!-- Redireccionar a note -->
+  </ion-fab-button>
+</ion-fab>
+
 <ion-content [fullscreen]="true">
 <div class="formulario">
 
@@ -16,8 +20,8 @@
         <ion-row>
           <ion-col size="9">
           <ion-item>
-           
-            <ion-label position="floating" > <ion-icon slot="start" name="clipboard-outline" class="icon_ion"></ion-icon>Nombre Nota</ion-label>
+            
+            <ion-label position="floating" > <ion-icon slot="start" name="clipboard-outline" class="icon_ion"></ion-icon><strong>Titulo de la nota</strong></ion-label>
             <ion-input [(ngModel)]="newNote.nombreNota" type="text" required></ion-input>
            
           </ion-item>
@@ -25,7 +29,7 @@
           
           <ion-col  >
             <ion-item>
-              <ion-label>Fecha:</ion-label>
+              <ion-label><strong>Fecha</strong></ion-label>
               <ion-input [(ngModel)]="newNote.fecha" type="date" ></ion-input>
             </ion-item>
           </ion-col>
@@ -34,6 +38,8 @@
       
       
     </ion-list>
+    
+    <strong style="margin-left: 20px;">Selecciona un tipo de nota</strong>
     <ion-item >
       <ion-select [(ngModel)]="newNote.tiponota" required>
         <ion-select-option value="personal">Personal</ion-select-option>
@@ -44,6 +50,7 @@
       <ion-icon slot="start" name="list-outline"></ion-icon>
     </ion-item>
   </div>
+  <strong style="margin-left: 20px;">Descripcion de la nota</strong>
   <ion-textarea [(ngModel)]="newNote.descripcion" style="white-space: pre-line; word-wrap: break-word; height: 100%; font-size: 20px;"required></ion-textarea>
   <ion-icon slot="start" name="book-outline" style="background-color: white;"></ion-icon>
 </ion-content>

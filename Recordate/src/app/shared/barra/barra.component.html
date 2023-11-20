@@ -18,7 +18,7 @@
             <ion-button class="tomar_foto"(click)="TakeImage()">Imagen para el perfil</ion-button>
             <div class="boton_logo_recordatorio">
                 
-                <ion-button [routerLink]="['/home-page']" class="boton_barr"><img class="recordatorio" src="assets/img/recordatorio.png" alt="">Recordatorio</ion-button>
+                <ion-button (click)="dismiss()" class="boton_barr"><img class="recordatorio" src="assets/img/recordatorio.png" alt="">Recordatorio</ion-button>
             </div>
             <div class="boton_logo_cerrar">
 

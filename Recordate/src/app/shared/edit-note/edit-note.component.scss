@@ -6,6 +6,8 @@
     margin-bottom: 15px;
     z-index: 100;
     overflow: hidden;
+    border-radius: 25%;
+    
 }
 .delete{
     position: fixed;
@@ -45,4 +47,16 @@
 
 .fecha_nota{
     font-size: 20px;
+}
+.add-note{
+    color: white;
+   position: fixed; 
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    overflow: hidden;
+    margin-bottom: 25px;
+    margin-right: 25px;
+    border-radius: 30px;
+
 }

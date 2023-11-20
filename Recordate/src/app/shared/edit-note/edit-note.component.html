@@ -16,19 +16,20 @@
 </ion-header>
 <ion-content>
 
-  
+  <br>
+  <br>
 <!--NOMBRE DE LA NOTA-->
-<div class="nombre_nota" >
-  <ion-label >Nombre de la Nota</ion-label>
+<strong>Titulo de la nota</strong>
+<div>
 <ion-input
 [value]="selectedNote.nombreNota" (ionChange)="selectedNote.nombreNota = $event.detail.value" placeholder="Nombre de la Nota" class="input">
 </ion-input>
 </div>
 
 <!--TIPO DE NOTA-->
-
-<div class="tipo_nota">
-  <ion-label position="stacked" >Tipo de Nota</ion-label>
+<strong>Tipo de nota</strong>
+<div>
+  <ion-label position="stacked" ></ion-label>
   <ion-select [value]="selectedNote.tiponota" (ionChange)="selectedNote.tiponota = $event.detail.value">
       <ion-select-option value="personal">Personal</ion-select-option>
       <ion-select-option value="compras">Compras</ion-select-option>
@@ -40,25 +41,32 @@
 
 
 <!--FECHA DE LA NOTA-->
-<div class="fecha_nota">
-  <ion-label position="stacked">Fecha de la Nota</ion-label>
+<strong>Selecciona una fecha</strong>
+<div>
+  <ion-label position="stacked"></ion-label>
   <ion-input [value]="selectedNote.fecha"  type="date"></ion-input>
 </div>
 
 
 
 <!--DESCRIPCION DE LA NOTA-->
-
+<strong>Descripcion de la nota</strong>
 <ion-textarea [value]="selectedNote.descripcion" (ionChange)
 ="selectedNote.descripcion = $event.detail.value" style="white-space: pre-line; word-wrap: break-word; height: 100%
-"required>Descripcion de la</ion-textarea>
+"required></ion-textarea>
 
-<div class="update">
+
   <!--boton de actualizar-->
-    <ion-button (click)="updateTask()">
+    <ion-fab class="add-note"(click)="updateTask()"><ion-fab-button>
       <ion-icon name="checkmark"></ion-icon>
-    </ion-button>
-  </div>
+    </ion-fab-button>
+
+      
+    </ion-fab>
+ 
+
+
+  
 
 
 
