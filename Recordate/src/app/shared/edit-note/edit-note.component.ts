@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Note } from './../../models/note.models';
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
@@ -21,7 +22,8 @@ export class EditNoteComponent implements OnInit {
     private dataSharingService: SharingdataService,
     private firebaseSvc: FirebaseService, // Asumo que el servicio se llama FirebaseService
     private afAuth: AngularFireAuth,
-    private utilsSvc:UtilsService
+    private utilsSvc:UtilsService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -106,6 +108,9 @@ export class EditNoteComponent implements OnInit {
     } else {
       console.error('No se encontró la nota o el userId.');
     }
+  }
+  redirect() {
+    this.cerrarModal();
   }
 }
 

@@ -1,46 +1,29 @@
 <ion-header>
 
-<div class="update">
-  <!--boton de actualizar-->
-    <ion-button (click)="updateTask()">
-      <ion-icon name="checkmark"></ion-icon>
-    </ion-button>
-  </div>
+    
+<ion-button  (click)="redirect()"fill="clear" >
+  <ion-icon name="arrow-undo-outline"  style="font-size: 40px; color: black;"   ></ion-icon>
+</ion-button>
+
+
 
   <div class="delete">
     <!--boton eliminar-->
-    <ion-button (click)="eliminarNota()">
+    <ion-button (click)="eliminarNota()" fill="clear" style="color: red; font-size: 30px;">
       <ion-icon name="trash"></ion-icon>
     </ion-button>
   </div>
-  
-  
-  
-
-</ion-header>  
+</ion-header>
 <ion-content>
 
-
+  
 <!--NOMBRE DE LA NOTA-->
-<div class="nombre_nota">
+<div class="nombre_nota" >
   <ion-label >Nombre de la Nota</ion-label>
 <ion-input
 [value]="selectedNote.nombreNota" (ionChange)="selectedNote.nombreNota = $event.detail.value" placeholder="Nombre de la Nota" class="input">
 </ion-input>
 </div>
-
-
-
-<!--DESCRIPCION DE LA NOTA-->
-
-<div class="descrip_nota">
-  <ion-label position="stacked">Descripción</ion-label>
-<ion-textarea 
-[value]="selectedNote.descripcion" (ionChange)="selectedNote.descripcion = $event.detail.value" placeholder="Descripción de la Nota">
-</ion-textarea>
-</div>
-
-
 
 <!--TIPO DE NOTA-->
 
@@ -61,6 +44,24 @@
   <ion-label position="stacked">Fecha de la Nota</ion-label>
   <ion-input [value]="selectedNote.fecha"  type="date"></ion-input>
 </div>
+
+
+
+<!--DESCRIPCION DE LA NOTA-->
+
+<ion-textarea [value]="selectedNote.descripcion" (ionChange)
+="selectedNote.descripcion = $event.detail.value" style="white-space: pre-line; word-wrap: break-word; height: 100%
+"required>Descripcion de la</ion-textarea>
+
+<div class="update">
+  <!--boton de actualizar-->
+    <ion-button (click)="updateTask()">
+      <ion-icon name="checkmark"></ion-icon>
+    </ion-button>
+  </div>
+
+
+
 </ion-content>
 
 
