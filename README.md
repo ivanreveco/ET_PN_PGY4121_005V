@@ -24,7 +24,14 @@ Erick Muñoz Ceraglioli | 21.196.367-0
 
 //
 git clone repo
+
+
+cd codigo
 cd recordate
+
+
 npm i
+
+
 ionic serve
 //
