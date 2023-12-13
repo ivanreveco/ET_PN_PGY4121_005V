@@ -15,7 +15,13 @@ import { ModalController } from '@ionic/angular';
 })
 export class HomePagePage implements OnInit {
   userId: string;
-  userNotes: Note[] = [];
+  //userNotes: Note[] = [];
+
+  userNotes: any[] = []; // Asegúrate de que esta propiedad esté definida y tenga datos
+
+  searchTerm = '';
+  filteredNotes: any[] = [];
+
 
   constructor(
     private firebaseSvc: FirebaseService,
@@ -40,6 +46,12 @@ export class HomePagePage implements OnInit {
           console.error('Error al obtener las notas:', error);
         }
       );
+      
+  }
+  filterNotes() {
+    this.filteredNotes = this.userNotes.filter((note) =>
+      note.nombreNota.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
   }
 
  
@@ -58,4 +70,6 @@ export class HomePagePage implements OnInit {
       console.error('No se encontró la nota a editar.');
     }
   }
+
+  
 }

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.models';
 import { ModalController } from '@ionic/angular';
 import { UtilsService } from 'src/app/services/utils.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-barra',
@@ -24,7 +25,8 @@ export class BarraComponent implements OnInit {
   constructor(
     public auth: FirebaseService,
     private db: UtilsService,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private alertController : AlertController
   ) {
     this.auth.getAuthState().subscribe(res => {
       if (res !== null) {
@@ -71,12 +73,43 @@ export class BarraComponent implements OnInit {
     });
   }
 
-  async salir() {
-    await this.auth.singOut();
-    this.dismiss();
-  }
-
   async dismiss() {
     await this.modalController.dismiss();
+  }
+
+  deleteImage() {
+    // Elimina la imagen capturada y actualiza la variable y el localStorage
+    this.capturedImage = null;
+    localStorage.removeItem(`capturedImage_${this.uid}`);
+  }
+
+
+  async confirmarCerrarSesion() {
+    const alert = await this.alertController.create({
+      header: 'Confirmar',
+      message: '¿Estás seguro de que deseas cerrar sesión?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            // Acciones al cancelar (opcional)
+          },
+        },
+        {
+          text: 'Aceptar',
+          handler: () => {
+            this.cerrarSesion(); // Llamada a la función para cerrar sesión
+          },
+        },
+      ],
+    });
+  
+    await alert.present();
+  }
+
+  async cerrarSesion() {
+    await this.auth.singOut();
+    this.dismiss();
   }
 }

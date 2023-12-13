@@ -2,9 +2,11 @@
   <div>
     <ion-header>
 
-      <app-barra></app-barra>
+      <app-barra ></app-barra>
 
     </ion-header>
+
+    <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="filterNotes()"></ion-searchbar>
 
     <ion-grid>
       <ion-row>
@@ -14,7 +16,7 @@
         </ion-col>
         <ion-col>
           <!-- Añadir notas -->
-          <ion-fab class="add-note">
+          <ion-fab class="add-note" >
             <ion-fab-button [routerLink]="['/note', {reload:true}]">
 
               
@@ -28,7 +30,7 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col  *ngFor="let note of userNotes"(click)="editNote(note.id)" style="display: flex; align-items: center; justify-content: center;">
+      <ion-col  size="12" size-md="6" *ngFor="let note of userNotes"(click)="editNote(note.id)" style="display: flex; align-items: center; justify-content: center;">
           <ion-card class="note-card">
             <ion-card-header>
               <h5>{{note.fecha}}</h5>
